@@ -30,7 +30,7 @@
     "dev": "next dev",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "pages:build": "pnpm @cloudflare/next-on-pages",
+    "pages:build": "pnpx @cloudflare/next-on-pages",
     "prepare": "husky",
     "preview": "pnpm pages:build && wrangler pages dev",
     "setup": "tsx scripts/setup.ts",
