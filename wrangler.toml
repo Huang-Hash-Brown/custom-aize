@@ -1,0 +1,13 @@
+name = "customaize"
+compatibility_date = "2024-09-03"
+compatibility_flags = [ "nodejs_compat" ]
+pages_build_output_dir = ".vercel/output/static"
+
+[placement]
+mode = "smart"
+
+[[d1_databases]]
+binding = "DATABASE"
+database_name = "customaize-db"
+database_id = "b94a57c5-0426-4a30-80a4-66cf805da4f2"
+migrations_dir = "./drizzle"

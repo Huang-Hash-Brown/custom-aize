@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json.schemastore.org/eslintrc",
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:eslint-plugin-next-on-pages/recommended",
+    "prettier"
+  ],
+  "plugins": [
+    "eslint-plugin-next-on-pages",
+    "json",
+    "unused-imports",
+    "react-compiler",
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "endOfLine": "auto"
+      }
+    ],
+    "import/extensions": "off",
+    "@typescript-eslint/comma-dangle": "off",
+    "import/prefer-default-export": "off",
+    "import/order": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/no-shadow": "off",
+    "@typescript-eslint/no-unused-expressions": "off",
+    "@typescript-eslint/consistent-type-imports": "off",
+    "no-nested-ternary": "off",
+    "no-param-reassign": "off",
+    "no-await-in-loop": "off",
+    "no-continue": "off",
+    "no-plusplus": "off",
+    "no-bitwise": "off",
+    "no-empty": "off",
+    "consistent-return": "off",
+    "no-promise-executor-return": "off",
+    "class-methods-use-this": "off",
+    "import/no-cycle": "off",
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_|t|[pP]rops|[mM]ode|[cC]ontext$"
+      }
+    ],
+    "@typescript-eslint/return-await": "off",
+    "guard-for-in": "off",
+    "no-restricted-syntax": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "max-classes-per-file": "off",
+    "no-underscore-dangle": "off",
+    "@typescript-eslint/naming-convention": "off",
+    "no-alert": "off",
+    "@typescript-eslint/ban-types": "off",
+    "import/no-extraneous-dependencies": "off",
+    "react/jsx-no-bind": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/function-component-definition": "off",
+    "react/no-array-index-key": "off",
+    "react/button-has-type": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "react/jsx-no-constructed-context-values": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/require-default-props": "off",
+    "react/prop-types": "off",
+    "react/no-unknown-property": "off",
+    "jsx-a11y/mouse-events-have-key-events": "off",
+    "jsx-a11y/no-noninteractive-tabindex": "off",
+    "jsx-a11y/tabindex-no-positive": "off",
+    "jsx-a11y/no-autofocus": "off",
+    "react/destructuring-assignment": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "no-case-declarations": "off",
+    "react/no-unstable-nested-components": "off",
+    "react-compiler/react-compiler": "error",
+    "jsx-a11y/control-has-associated-label": "off",
+    "react/jsx-no-target-blank": "off",
+    "react/jsx-no-useless-fragment": "off",
+    "no-restricted-exports": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "jsx-a11y/heading-has-content": "off"
+  }
+}
