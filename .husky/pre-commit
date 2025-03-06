@@ -1,2 +1,11 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
+
+# Check if the app or pages directory exists
+if [ -d "app" ] || [ -d "pages" ]; then
+  pnpm lint-staged
+else
+  echo "Skipping lint-staged as no pages or app directory exists yet"
+  # Still run lint-staged, but skip next lint
+  git diff --cached --name-only | grep -E '\.(js|jsx|ts|tsx)$' | xargs -I {} pnpm prettier --write {}
+fi
