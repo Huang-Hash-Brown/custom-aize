@@ -1,19 +1,19 @@
-'use client'
+'use client';
 
-import type { CSSProperties, ReactElement } from 'react'
-import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+import type { CSSProperties, ReactElement } from 'react';
+import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/utils';
 
 interface SparkleProps {
-  id: string
-  x: string
-  y: string
-  color: string
-  delay: number
-  scale: number
-  lifespan: number
+  id: string;
+  x: string;
+  y: string;
+  color: string;
+  delay: number;
+  scale: number;
+  lifespan: number;
 }
 
 interface SparklesTextProps {
@@ -23,7 +23,7 @@ interface SparklesTextProps {
    * @description
    * The component to be rendered as the text
    */
-  as?: ReactElement
+  as?: ReactElement;
 
   /**
    * @default ""
@@ -31,7 +31,7 @@ interface SparklesTextProps {
    * @description
    * The className of the text
    */
-  className?: string
+  className?: string;
 
   /**
    * @required
@@ -39,7 +39,7 @@ interface SparklesTextProps {
    * @description
    * The text to be displayed
    */
-  text: string
+  text: string;
 
   /**
    * @default 10
@@ -47,7 +47,7 @@ interface SparklesTextProps {
    * @description
    * The count of sparkles
    */
-  sparklesCount?: number
+  sparklesCount?: number;
 
   /**
    * @default "{first: '#A07CFE', second: '#FE8FB5'}"
@@ -56,9 +56,9 @@ interface SparklesTextProps {
    * The colors of the sparkles
    */
   colors?: {
-    first: string
-    second: string
-  }
+    first: string;
+    second: string;
+  };
 }
 
 export const SparklesText: React.FC<SparklesTextProps> = ({
@@ -68,39 +68,39 @@ export const SparklesText: React.FC<SparklesTextProps> = ({
   sparklesCount = 10,
   ...props
 }) => {
-  const [sparkles, setSparkles] = useState<SparkleProps[]>([])
+  const [sparkles, setSparkles] = useState<SparkleProps[]>([]);
 
   useEffect(() => {
     const generateStar = (): SparkleProps => {
-      const starX = `${Math.random() * 100}%`
-      const starY = `${Math.random() * 100}%`
-      const color = Math.random() > 0.5 ? colors.first : colors.second
-      const delay = Math.random() * 2
-      const scale = Math.random() * 1 + 0.3
-      const lifespan = Math.random() * 10 + 5
-      const id = `${starX}-${starY}-${Date.now()}`
-      return { id, x: starX, y: starY, color, delay, scale, lifespan }
-    }
+      const starX = `${Math.random() * 100}%`;
+      const starY = `${Math.random() * 100}%`;
+      const color = Math.random() > 0.5 ? colors.first : colors.second;
+      const delay = Math.random() * 2;
+      const scale = Math.random() * 1 + 0.3;
+      const lifespan = Math.random() * 10 + 5;
+      const id = `${starX}-${starY}-${Date.now()}`;
+      return { id, x: starX, y: starY, color, delay, scale, lifespan };
+    };
 
     const initializeStars = () => {
-      const newSparkles = Array.from({ length: sparklesCount }, generateStar)
-      setSparkles(newSparkles)
-    }
+      const newSparkles = Array.from({ length: sparklesCount }, generateStar);
+      setSparkles(newSparkles);
+    };
 
     const updateStars = () => {
       setSparkles(currentSparkles =>
         currentSparkles.map(star => {
-          if (star.lifespan <= 0) return generateStar()
-          return { ...star, lifespan: star.lifespan - 0.1 }
+          if (star.lifespan <= 0) return generateStar();
+          return { ...star, lifespan: star.lifespan - 0.1 };
         })
-      )
-    }
+      );
+    };
 
-    initializeStars()
-    const interval = setInterval(updateStars, 100)
+    initializeStars();
+    const interval = setInterval(updateStars, 100);
 
-    return () => clearInterval(interval)
-  }, [colors.first, colors.second])
+    return () => clearInterval(interval);
+  }, [colors.first, colors.second]);
 
   return (
     <div
@@ -122,8 +122,8 @@ export const SparklesText: React.FC<SparklesTextProps> = ({
         </strong>
       </span>
     </div>
-  )
-}
+  );
+};
 
 export const Sparkle: React.FC<SparkleProps> = ({
   id,
@@ -152,4 +152,4 @@ export const Sparkle: React.FC<SparkleProps> = ({
       fill={color}
     />
   </motion.svg>
-)
+);

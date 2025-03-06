@@ -1,19 +1,19 @@
-'use client'
+'use client';
 
-import * as React from 'react'
-import { type DialogProps } from '@radix-ui/react-dialog'
-import { MagnifyingGlassIcon } from '@radix-ui/react-icons'
-import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
-import { Command as CommandPrimitive, useCommandState } from 'cmdk'
+import * as React from 'react';
+import { type DialogProps } from '@radix-ui/react-dialog';
+import { MagnifyingGlassIcon } from '@radix-ui/react-icons';
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
+import { Command as CommandPrimitive, useCommandState } from 'cmdk';
 
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/utils';
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle
-} from '@/components/ui/dialog'
+} from '@/components/ui/dialog';
 
 const Command: React.FC<
   React.ComponentPropsWithRef<typeof CommandPrimitive>
@@ -26,24 +26,24 @@ const Command: React.FC<
     )}
     {...props}
   />
-)
-Command.displayName = CommandPrimitive.displayName
+);
+Command.displayName = CommandPrimitive.displayName;
 
 export const CommandHook: React.FC<{ onFocus: (val: string) => void }> = ({
   onFocus
 }) => {
-  const val = useCommandState(state => state.value)
+  const val = useCommandState(state => state.value);
 
   React.useEffect(() => {
-    onFocus(val)
-  }, [val])
+    onFocus(val);
+  }, [val]);
 
-  return null
-}
+  return null;
+};
 
 interface CommandDialogProps extends DialogProps {
-  dialogContentClassName?: string
-  commandClassName?: string
+  dialogContentClassName?: string;
+  commandClassName?: string;
 }
 
 const CommandDialog = ({
@@ -77,12 +77,12 @@ const CommandDialog = ({
       </Command>
     </DialogContent>
   </Dialog>
-)
+);
 
 const CommandInput: React.FC<
   React.ComponentPropsWithRef<typeof CommandPrimitive.Input> & {
-    hidden?: boolean
-    showSearchIcon?: boolean
+    hidden?: boolean;
+    showSearchIcon?: boolean;
   }
 > = ({ ref, className, hidden, showSearchIcon = true, ...props }) => (
   <div
@@ -101,9 +101,9 @@ const CommandInput: React.FC<
       {...props}
     />
   </div>
-)
+);
 
-CommandInput.displayName = CommandPrimitive.Input.displayName
+CommandInput.displayName = CommandPrimitive.Input.displayName;
 
 const CommandList: React.FC<
   React.ComponentPropsWithRef<typeof CommandPrimitive.List>
@@ -113,9 +113,9 @@ const CommandList: React.FC<
     className={cn('max-h-[300px] overflow-y-auto overflow-x-hidden', className)}
     {...props}
   />
-)
+);
 
-CommandList.displayName = CommandPrimitive.List.displayName
+CommandList.displayName = CommandPrimitive.List.displayName;
 
 const CommandEmpty: React.FC<
   React.ComponentPropsWithRef<typeof CommandPrimitive.Empty>
@@ -125,9 +125,9 @@ const CommandEmpty: React.FC<
     className="relative flex cursor-default select-none items-center rounded-md px-2 py-1.5 text-sm outline-hidden"
     {...props}
   />
-)
+);
 
-CommandEmpty.displayName = CommandPrimitive.Empty.displayName
+CommandEmpty.displayName = CommandPrimitive.Empty.displayName;
 
 const CommandGroup: React.FC<
   React.ComponentPropsWithRef<typeof CommandPrimitive.Group>
@@ -140,9 +140,9 @@ const CommandGroup: React.FC<
     )}
     {...props}
   />
-)
+);
 
-CommandGroup.displayName = CommandPrimitive.Group.displayName
+CommandGroup.displayName = CommandPrimitive.Group.displayName;
 
 const CommandSeparator: React.FC<
   React.ComponentPropsWithRef<typeof CommandPrimitive.Separator>
@@ -152,8 +152,8 @@ const CommandSeparator: React.FC<
     className={cn('-mx-1 h-px bg-border', className)}
     {...props}
   />
-)
-CommandSeparator.displayName = CommandPrimitive.Separator.displayName
+);
+CommandSeparator.displayName = CommandPrimitive.Separator.displayName;
 
 const CommandItem: React.FC<
   React.ComponentPropsWithRef<typeof CommandPrimitive.Item>
@@ -166,9 +166,9 @@ const CommandItem: React.FC<
     )}
     {...props}
   />
-)
+);
 
-CommandItem.displayName = CommandPrimitive.Item.displayName
+CommandItem.displayName = CommandPrimitive.Item.displayName;
 
 const CommandShortcut = ({
   className,
@@ -181,8 +181,8 @@ const CommandShortcut = ({
     )}
     {...props}
   />
-)
-CommandShortcut.displayName = 'CommandShortcut'
+);
+CommandShortcut.displayName = 'CommandShortcut';
 
 export {
   Command,
@@ -194,4 +194,4 @@ export {
   CommandItem,
   CommandShortcut,
   CommandSeparator
-}
+};
