@@ -118,7 +118,6 @@
     "@cloudflare/workers-types": "^4.20250224.0",
     "@commitlint/cli": "^19.7.1",
     "@commitlint/config-conventional": "^19.7.1",
-    "@commitlint/cz-commitlint": "^19.6.1",
     "@ianvs/prettier-plugin-sort-imports": "^4.4.1",
     "@tailwindcss/postcss": "^4.0.9",
     "@types/node": "^22.13.8",
@@ -157,7 +156,7 @@
   },
   "config": {
     "commitizen": {
-      "path": "./cz-adapter.cjs"
+      "path": "./node_modules/cz-git"
     }
   }
 }
