@@ -1,17 +1,17 @@
-import { BaseLogger, type BaseLoggerOptions } from './base-logger'
+import { BaseLogger, type BaseLoggerOptions } from './base-logger';
 
 export class ServerLogger extends BaseLogger {
-  private _isDev: boolean | undefined
+  private _isDev: boolean | undefined;
 
   constructor(options: BaseLoggerOptions) {
-    super(options)
+    super(options);
   }
 
   protected isDev(): boolean {
     if (this._isDev === undefined) {
-      this._isDev = process.env.NODE_ENV !== 'production'
+      this._isDev = process.env.NODE_ENV !== 'production';
     }
-    return this._isDev
+    return this._isDev;
   }
 
   // eslint-disable-next-line unused-imports/no-unused-vars
@@ -25,4 +25,4 @@ export class ServerLogger extends BaseLogger {
 export const logger = new ServerLogger({
   name: 'customaize',
   level: 'info'
-})
+});

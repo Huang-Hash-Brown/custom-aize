@@ -1,19 +1,19 @@
-'use client'
+'use client';
 
-import * as React from 'react'
-import * as SheetPrimitive from '@radix-ui/react-dialog'
-import { Cross2Icon } from '@radix-ui/react-icons'
-import { cva, type VariantProps } from 'class-variance-authority'
+import * as React from 'react';
+import * as SheetPrimitive from '@radix-ui/react-dialog';
+import { Cross2Icon } from '@radix-ui/react-icons';
+import { cva, type VariantProps } from 'class-variance-authority';
 
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/utils';
 
-const Sheet = SheetPrimitive.Root
+const Sheet = SheetPrimitive.Root;
 
-const SheetTrigger = SheetPrimitive.Trigger
+const SheetTrigger = SheetPrimitive.Trigger;
 
-const SheetClose = SheetPrimitive.Close
+const SheetClose = SheetPrimitive.Close;
 
-const SheetPortal = SheetPrimitive.Portal
+const SheetPortal = SheetPrimitive.Portal;
 
 const SheetOverlay: React.FC<
   React.ComponentPropsWithRef<typeof SheetPrimitive.Overlay>
@@ -26,8 +26,8 @@ const SheetOverlay: React.FC<
     )}
     {...props}
   />
-)
-SheetOverlay.displayName = SheetPrimitive.Overlay.displayName
+);
+SheetOverlay.displayName = SheetPrimitive.Overlay.displayName;
 
 const sheetVariants = cva(
   'fixed z-50 gap-4 bg-background p-4 pt-10 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500 data-[state=open]:animate-in data-[state=closed]:animate-out',
@@ -46,7 +46,7 @@ const sheetVariants = cva(
       side: 'right'
     }
   }
-)
+);
 
 interface SheetContentProps
   extends React.ComponentPropsWithRef<typeof SheetPrimitive.Content>,
@@ -73,8 +73,8 @@ const SheetContent: React.FC<SheetContentProps> = ({
       {children}
     </SheetPrimitive.Content>
   </SheetPortal>
-)
-SheetContent.displayName = SheetPrimitive.Content.displayName
+);
+SheetContent.displayName = SheetPrimitive.Content.displayName;
 
 const SheetHeader: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
   className,
@@ -87,8 +87,8 @@ const SheetHeader: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
     )}
     {...props}
   />
-)
-SheetHeader.displayName = 'SheetHeader'
+);
+SheetHeader.displayName = 'SheetHeader';
 
 const SheetFooter: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
   className,
@@ -101,8 +101,8 @@ const SheetFooter: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
     )}
     {...props}
   />
-)
-SheetFooter.displayName = 'SheetFooter'
+);
+SheetFooter.displayName = 'SheetFooter';
 
 const SheetTitle: React.FC<
   React.ComponentPropsWithRef<typeof SheetPrimitive.Title>
@@ -112,8 +112,8 @@ const SheetTitle: React.FC<
     className={cn('text-lg font-semibold text-foreground', className)}
     {...props}
   />
-)
-SheetTitle.displayName = SheetPrimitive.Title.displayName
+);
+SheetTitle.displayName = SheetPrimitive.Title.displayName;
 
 const SheetDescription: React.FC<
   React.ComponentPropsWithRef<typeof SheetPrimitive.Description>
@@ -123,18 +123,18 @@ const SheetDescription: React.FC<
     className={cn('text-sm text-muted-foreground', className)}
     {...props}
   />
-)
-SheetDescription.displayName = SheetPrimitive.Description.displayName
+);
+SheetDescription.displayName = SheetPrimitive.Description.displayName;
 
 export {
   Sheet,
-  SheetPortal,
-  SheetOverlay,
-  SheetTrigger,
   SheetClose,
   SheetContent,
-  SheetHeader,
+  SheetDescription,
   SheetFooter,
+  SheetHeader,
+  SheetOverlay,
+  SheetPortal,
   SheetTitle,
-  SheetDescription
-}
+  SheetTrigger
+};

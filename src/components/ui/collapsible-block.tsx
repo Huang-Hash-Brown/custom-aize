@@ -1,6 +1,6 @@
-'use client'
+'use client';
 
-import React, { ReactNode, useState } from 'react'
+import React, { ReactNode, useState } from 'react';
 import {
   CheckIcon,
   ChevronDownIcon,
@@ -8,28 +8,28 @@ import {
   CodeIcon,
   Cross2Icon,
   DotFilledIcon
-} from '@radix-ui/react-icons'
-import { AnimatePresence, motion } from 'framer-motion'
-import { useTranslation } from 'react-i18next'
+} from '@radix-ui/react-icons';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/button';
 
 export type CollapsibleBlockStatus =
   | 'idle'
   | 'loading'
   | 'waiting'
   | 'success'
-  | 'error'
+  | 'error';
 
 export interface CollapsibleBlockProps {
-  children: ReactNode
-  title: ReactNode
-  actionSlot?: ReactNode
-  statusSlot?: ReactNode
-  defaultExpanded?: boolean
-  status?: CollapsibleBlockStatus
-  className?: string
-  onClickTitle?: () => void
+  children: ReactNode;
+  title: ReactNode;
+  actionSlot?: ReactNode;
+  statusSlot?: ReactNode;
+  defaultExpanded?: boolean;
+  status?: CollapsibleBlockStatus;
+  className?: string;
+  onClickTitle?: () => void;
 }
 
 export const CollapsibleBlock: React.FC<CollapsibleBlockProps> = ({
@@ -42,8 +42,8 @@ export const CollapsibleBlock: React.FC<CollapsibleBlockProps> = ({
   className = '',
   onClickTitle
 }) => {
-  const { t } = useTranslation()
-  const [isExpanded, setIsExpanded] = useState(defaultExpanded)
+  const { t } = useTranslation();
+  const [isExpanded, setIsExpanded] = useState(defaultExpanded);
 
   return (
     <div className={`relative overflow-hidden rounded-md border ${className}`}>
@@ -61,7 +61,7 @@ export const CollapsibleBlock: React.FC<CollapsibleBlockProps> = ({
             <div
               className="flex h-full items-center shrink-0 flex-1 gap-1"
               onClick={e => {
-                e.stopPropagation()
+                e.stopPropagation();
               }}
             >
               {statusSlot}
@@ -155,5 +155,5 @@ export const CollapsibleBlock: React.FC<CollapsibleBlockProps> = ({
         </motion.div>
       </AnimatePresence>
     </div>
-  )
-}
+  );
+};

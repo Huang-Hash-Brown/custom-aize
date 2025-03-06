@@ -1,9 +1,9 @@
-import { QueryCache, QueryClient } from '@tanstack/react-query'
+import { QueryCache, QueryClient } from '@tanstack/react-query';
 
-import { logAndToastError } from '@/lib/utils'
+import { logAndToastError } from '@/lib/utils';
 
 const retryDelay = (attemptIndex: number) =>
-  Math.min(1000 * 2 ** attemptIndex, 30000)
+  Math.min(1000 * 2 ** attemptIndex, 30000);
 
 export const createQueryClient = () =>
   new QueryClient({
@@ -22,16 +22,16 @@ export const createQueryClient = () =>
     },
     queryCache: new QueryCache({
       onError: (error, { queryKey }) => {
-        const whiteListQueryKey = [['xxx']]
+        const whiteListQueryKey = [['xxx']];
 
         if (
           whiteListQueryKey.some(
             key => JSON.stringify(key) === JSON.stringify(queryKey)
           )
         )
-          return
+          return;
 
-        logAndToastError('Query error', error)
+        logAndToastError('Query error', error);
       }
     })
-  })
+  });

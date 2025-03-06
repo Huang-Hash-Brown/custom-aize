@@ -1,14 +1,14 @@
-'use client'
+'use client';
 
-import React, { Children, ReactElement } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import React, { Children, ReactElement } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/utils';
 
 export interface AnimatedListProps {
-  className?: string
-  children: React.ReactNode
-  disableAnimation?: boolean
+  className?: string;
+  children: React.ReactNode;
+  disableAnimation?: boolean;
 }
 
 export const AnimatedList: React.FC<AnimatedListProps> = ({
@@ -29,12 +29,12 @@ export const AnimatedList: React.FC<AnimatedListProps> = ({
       </AnimatePresence>
     )}
   </div>
-)
+);
 
-AnimatedList.displayName = 'AnimatedList'
+AnimatedList.displayName = 'AnimatedList';
 
 interface AnimatedListItemProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export const AnimatedListItem = ({ children }: AnimatedListItemProps) => (
@@ -62,4 +62,4 @@ export const AnimatedListItem = ({ children }: AnimatedListItemProps) => (
   >
     {children}
   </motion.div>
-)
+);

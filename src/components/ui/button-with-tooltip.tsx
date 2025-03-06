@@ -1,23 +1,23 @@
-'use client'
+'use client';
 
-import type { TooltipContentProps } from '@radix-ui/react-tooltip'
+import type { TooltipContentProps } from '@radix-ui/react-tooltip';
 
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger
-} from '@/components/ui/tooltip'
+} from '@/components/ui/tooltip';
 
-import { Button, type ButtonProps } from './button'
+import { Button, type ButtonProps } from './button';
 
 export interface ButtonWithTooltipRef extends HTMLButtonElement {}
 
 export type ButtonWithTooltipProps = ButtonProps & {
-  ref?: React.Ref<ButtonWithTooltipRef>
-  tooltip: string
-  side?: TooltipContentProps['side']
-}
+  ref?: React.Ref<ButtonWithTooltipRef>;
+  tooltip: string;
+  side?: TooltipContentProps['side'];
+};
 
 export const ButtonWithTooltip: React.FC<ButtonWithTooltipProps> = ({
   ref,
@@ -38,4 +38,4 @@ export const ButtonWithTooltip: React.FC<ButtonWithTooltipProps> = ({
       </TooltipContent>
     </Tooltip>
   </TooltipProvider>
-)
+);

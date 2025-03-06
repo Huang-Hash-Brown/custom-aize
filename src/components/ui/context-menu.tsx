@@ -1,30 +1,30 @@
-'use client'
+'use client';
 
-import * as React from 'react'
-import * as ContextMenuPrimitive from '@radix-ui/react-context-menu'
+import * as React from 'react';
+import * as ContextMenuPrimitive from '@radix-ui/react-context-menu';
 import {
   CheckIcon,
   ChevronRightIcon,
   DotFilledIcon
-} from '@radix-ui/react-icons'
+} from '@radix-ui/react-icons';
 
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/utils';
 
-const ContextMenu = ContextMenuPrimitive.Root
+const ContextMenu = ContextMenuPrimitive.Root;
 
-const ContextMenuTrigger = ContextMenuPrimitive.Trigger
+const ContextMenuTrigger = ContextMenuPrimitive.Trigger;
 
-const ContextMenuGroup = ContextMenuPrimitive.Group
+const ContextMenuGroup = ContextMenuPrimitive.Group;
 
-const ContextMenuPortal = ContextMenuPrimitive.Portal
+const ContextMenuPortal = ContextMenuPrimitive.Portal;
 
-const ContextMenuSub = ContextMenuPrimitive.Sub
+const ContextMenuSub = ContextMenuPrimitive.Sub;
 
-const ContextMenuRadioGroup = ContextMenuPrimitive.RadioGroup
+const ContextMenuRadioGroup = ContextMenuPrimitive.RadioGroup;
 
 const ContextMenuSubTrigger: React.FC<
   React.ComponentPropsWithRef<typeof ContextMenuPrimitive.SubTrigger> & {
-    inset?: boolean
+    inset?: boolean;
   }
 > = ({ ref, className, inset, children, ...props }) => (
   <ContextMenuPrimitive.SubTrigger
@@ -39,8 +39,8 @@ const ContextMenuSubTrigger: React.FC<
     {children}
     <ChevronRightIcon className="ml-auto h-4 w-4" />
   </ContextMenuPrimitive.SubTrigger>
-)
-ContextMenuSubTrigger.displayName = ContextMenuPrimitive.SubTrigger.displayName
+);
+ContextMenuSubTrigger.displayName = ContextMenuPrimitive.SubTrigger.displayName;
 
 const ContextMenuSubContent: React.FC<
   React.ComponentPropsWithRef<typeof ContextMenuPrimitive.SubContent>
@@ -53,8 +53,8 @@ const ContextMenuSubContent: React.FC<
     )}
     {...props}
   />
-)
-ContextMenuSubContent.displayName = ContextMenuPrimitive.SubContent.displayName
+);
+ContextMenuSubContent.displayName = ContextMenuPrimitive.SubContent.displayName;
 
 const ContextMenuContent: React.FC<
   React.ComponentPropsWithRef<typeof ContextMenuPrimitive.Content>
@@ -69,12 +69,12 @@ const ContextMenuContent: React.FC<
       {...props}
     />
   </ContextMenuPrimitive.Portal>
-)
-ContextMenuContent.displayName = ContextMenuPrimitive.Content.displayName
+);
+ContextMenuContent.displayName = ContextMenuPrimitive.Content.displayName;
 
 const ContextMenuItem: React.FC<
   React.ComponentPropsWithRef<typeof ContextMenuPrimitive.Item> & {
-    inset?: boolean
+    inset?: boolean;
   }
 > = ({ ref, className, inset, ...props }) => (
   <ContextMenuPrimitive.Item
@@ -86,8 +86,8 @@ const ContextMenuItem: React.FC<
     )}
     {...props}
   />
-)
-ContextMenuItem.displayName = ContextMenuPrimitive.Item.displayName
+);
+ContextMenuItem.displayName = ContextMenuPrimitive.Item.displayName;
 
 const ContextMenuCheckboxItem: React.FC<
   React.ComponentPropsWithRef<typeof ContextMenuPrimitive.CheckboxItem>
@@ -108,9 +108,9 @@ const ContextMenuCheckboxItem: React.FC<
     </span>
     {children}
   </ContextMenuPrimitive.CheckboxItem>
-)
+);
 ContextMenuCheckboxItem.displayName =
-  ContextMenuPrimitive.CheckboxItem.displayName
+  ContextMenuPrimitive.CheckboxItem.displayName;
 
 const ContextMenuRadioItem: React.FC<
   React.ComponentPropsWithRef<typeof ContextMenuPrimitive.RadioItem>
@@ -130,12 +130,12 @@ const ContextMenuRadioItem: React.FC<
     </span>
     {children}
   </ContextMenuPrimitive.RadioItem>
-)
-ContextMenuRadioItem.displayName = ContextMenuPrimitive.RadioItem.displayName
+);
+ContextMenuRadioItem.displayName = ContextMenuPrimitive.RadioItem.displayName;
 
 const ContextMenuLabel: React.FC<
   React.ComponentPropsWithRef<typeof ContextMenuPrimitive.Label> & {
-    inset?: boolean
+    inset?: boolean;
   }
 > = ({ ref, className, inset, ...props }) => (
   <ContextMenuPrimitive.Label
@@ -147,8 +147,8 @@ const ContextMenuLabel: React.FC<
     )}
     {...props}
   />
-)
-ContextMenuLabel.displayName = ContextMenuPrimitive.Label.displayName
+);
+ContextMenuLabel.displayName = ContextMenuPrimitive.Label.displayName;
 
 const ContextMenuSeparator: React.FC<
   React.ComponentPropsWithRef<typeof ContextMenuPrimitive.Separator>
@@ -158,8 +158,8 @@ const ContextMenuSeparator: React.FC<
     className={cn('-mx-1 my-1 h-px bg-border', className)}
     {...props}
   />
-)
-ContextMenuSeparator.displayName = ContextMenuPrimitive.Separator.displayName
+);
+ContextMenuSeparator.displayName = ContextMenuPrimitive.Separator.displayName;
 
 const ContextMenuShortcut = ({
   className,
@@ -172,23 +172,23 @@ const ContextMenuShortcut = ({
     )}
     {...props}
   />
-)
-ContextMenuShortcut.displayName = 'ContextMenuShortcut'
+);
+ContextMenuShortcut.displayName = 'ContextMenuShortcut';
 
 export {
   ContextMenu,
-  ContextMenuTrigger,
-  ContextMenuContent,
-  ContextMenuItem,
   ContextMenuCheckboxItem,
-  ContextMenuRadioItem,
+  ContextMenuContent,
+  ContextMenuGroup,
+  ContextMenuItem,
   ContextMenuLabel,
+  ContextMenuPortal,
+  ContextMenuRadioGroup,
+  ContextMenuRadioItem,
   ContextMenuSeparator,
   ContextMenuShortcut,
-  ContextMenuGroup,
-  ContextMenuPortal,
   ContextMenuSub,
   ContextMenuSubContent,
   ContextMenuSubTrigger,
-  ContextMenuRadioGroup
-}
+  ContextMenuTrigger
+};

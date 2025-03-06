@@ -1,17 +1,17 @@
-'use client'
+'use client';
 
-import * as React from 'react'
+import * as React from 'react';
 
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/utils';
 
-import { Badge } from './badge'
+import { Badge } from './badge';
 
 const Timeline: React.FC<React.ComponentPropsWithRef<'div'>> = ({
   ref,
   className,
   ...props
-}) => <div ref={ref} className={className} {...props} />
-Timeline.displayName = 'Timeline'
+}) => <div ref={ref} className={className} {...props} />;
+Timeline.displayName = 'Timeline';
 
 const TimelineItem: React.FC<React.ComponentPropsWithRef<'div'>> = ({
   ref,
@@ -23,8 +23,8 @@ const TimelineItem: React.FC<React.ComponentPropsWithRef<'div'>> = ({
     className={cn('group relative pb-8 pl-8 sm:pl-44', className)}
     {...props}
   />
-)
-TimelineItem.displayName = 'TimelineItem'
+);
+TimelineItem.displayName = 'TimelineItem';
 
 const TimelineHeader: React.FC<React.ComponentPropsWithRef<'div'>> = ({
   ref,
@@ -39,8 +39,8 @@ const TimelineHeader: React.FC<React.ComponentPropsWithRef<'div'>> = ({
     )}
     {...props}
   />
-)
-TimelineHeader.displayName = 'TimelineHeader'
+);
+TimelineHeader.displayName = 'TimelineHeader';
 
 const TimelineTitle: React.FC<React.ComponentPropsWithRef<'div'>> = ({
   ref,
@@ -55,8 +55,8 @@ const TimelineTitle: React.FC<React.ComponentPropsWithRef<'div'>> = ({
   >
     {children}
   </div>
-)
-TimelineTitle.displayName = 'TimelineTitle'
+);
+TimelineTitle.displayName = 'TimelineTitle';
 
 const TimelineTime: React.FC<React.ComponentPropsWithRef<typeof Badge>> = ({
   ref,
@@ -75,8 +75,8 @@ const TimelineTime: React.FC<React.ComponentPropsWithRef<typeof Badge>> = ({
   >
     {props.children}
   </Badge>
-)
-TimelineTime.displayName = 'TimelineTime'
+);
+TimelineTime.displayName = 'TimelineTime';
 
 const TimelineDescription: React.FC<React.ComponentPropsWithRef<'div'>> = ({
   ref,
@@ -88,14 +88,14 @@ const TimelineDescription: React.FC<React.ComponentPropsWithRef<'div'>> = ({
     className={cn('text-muted-foreground', className)}
     {...props}
   />
-)
-TimelineDescription.displayName = 'TimelineDescription'
+);
+TimelineDescription.displayName = 'TimelineDescription';
 
 export {
   Timeline,
-  TimelineItem,
+  TimelineDescription,
   TimelineHeader,
+  TimelineItem,
   TimelineTime,
-  TimelineTitle,
-  TimelineDescription
-}
+  TimelineTitle
+};

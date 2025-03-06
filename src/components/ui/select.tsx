@@ -1,21 +1,21 @@
-'use client'
+'use client';
 
-import * as React from 'react'
+import * as React from 'react';
 import {
   CaretSortIcon,
   CheckIcon,
   ChevronDownIcon,
   ChevronUpIcon
-} from '@radix-ui/react-icons'
-import * as SelectPrimitive from '@radix-ui/react-select'
+} from '@radix-ui/react-icons';
+import * as SelectPrimitive from '@radix-ui/react-select';
 
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/utils';
 
-const Select = SelectPrimitive.Root
+const Select = SelectPrimitive.Root;
 
-const SelectGroup = SelectPrimitive.Group
+const SelectGroup = SelectPrimitive.Group;
 
-const SelectValue = SelectPrimitive.Value
+const SelectValue = SelectPrimitive.Value;
 
 const SelectTrigger: React.FC<
   React.ComponentPropsWithRef<typeof SelectPrimitive.Trigger>
@@ -33,8 +33,8 @@ const SelectTrigger: React.FC<
       <CaretSortIcon className="h-4 w-4 opacity-50" />
     </SelectPrimitive.Icon>
   </SelectPrimitive.Trigger>
-)
-SelectTrigger.displayName = SelectPrimitive.Trigger.displayName
+);
+SelectTrigger.displayName = SelectPrimitive.Trigger.displayName;
 
 const SelectScrollUpButton: React.FC<
   React.ComponentPropsWithRef<typeof SelectPrimitive.ScrollUpButton>
@@ -49,8 +49,8 @@ const SelectScrollUpButton: React.FC<
   >
     <ChevronUpIcon />
   </SelectPrimitive.ScrollUpButton>
-)
-SelectScrollUpButton.displayName = SelectPrimitive.ScrollUpButton.displayName
+);
+SelectScrollUpButton.displayName = SelectPrimitive.ScrollUpButton.displayName;
 
 const SelectScrollDownButton: React.FC<
   React.ComponentPropsWithRef<typeof SelectPrimitive.ScrollDownButton>
@@ -65,9 +65,9 @@ const SelectScrollDownButton: React.FC<
   >
     <ChevronDownIcon />
   </SelectPrimitive.ScrollDownButton>
-)
+);
 SelectScrollDownButton.displayName =
-  SelectPrimitive.ScrollDownButton.displayName
+  SelectPrimitive.ScrollDownButton.displayName;
 
 const SelectContent: React.FC<
   React.ComponentPropsWithRef<typeof SelectPrimitive.Content>
@@ -97,8 +97,8 @@ const SelectContent: React.FC<
       <SelectScrollDownButton />
     </SelectPrimitive.Content>
   </SelectPrimitive.Portal>
-)
-SelectContent.displayName = SelectPrimitive.Content.displayName
+);
+SelectContent.displayName = SelectPrimitive.Content.displayName;
 
 const SelectLabel: React.FC<
   React.ComponentPropsWithRef<typeof SelectPrimitive.Label>
@@ -108,8 +108,8 @@ const SelectLabel: React.FC<
     className={cn('px-2 py-1.5 text-sm font-semibold', className)}
     {...props}
   />
-)
-SelectLabel.displayName = SelectPrimitive.Label.displayName
+);
+SelectLabel.displayName = SelectPrimitive.Label.displayName;
 
 const SelectItem: React.FC<
   React.ComponentPropsWithRef<typeof SelectPrimitive.Item>
@@ -129,8 +129,8 @@ const SelectItem: React.FC<
     </span>
     <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
   </SelectPrimitive.Item>
-)
-SelectItem.displayName = SelectPrimitive.Item.displayName
+);
+SelectItem.displayName = SelectPrimitive.Item.displayName;
 
 const SelectSeparator: React.FC<
   React.ComponentPropsWithRef<typeof SelectPrimitive.Separator>
@@ -140,18 +140,18 @@ const SelectSeparator: React.FC<
     className={cn('-mx-1 my-1 h-px bg-muted', className)}
     {...props}
   />
-)
-SelectSeparator.displayName = SelectPrimitive.Separator.displayName
+);
+SelectSeparator.displayName = SelectPrimitive.Separator.displayName;
 
 export {
   Select,
-  SelectGroup,
-  SelectValue,
-  SelectTrigger,
   SelectContent,
-  SelectLabel,
+  SelectGroup,
   SelectItem,
-  SelectSeparator,
+  SelectLabel,
+  SelectScrollDownButton,
   SelectScrollUpButton,
-  SelectScrollDownButton
-}
+  SelectSeparator,
+  SelectTrigger,
+  SelectValue
+};

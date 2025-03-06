@@ -1,21 +1,21 @@
-'use client'
+'use client';
 
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/utils';
 
-type TColorProp = string | string[]
+type TColorProp = string | string[];
 
 interface ShineBorderProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, 'color'> {
-  borderRadius?: number
-  borderWidth?: number
-  duration?: number
-  color?: TColorProp
-  animated?: boolean
-  staticBorderColor?: string
-  className?: string
-  innerClassName?: string
-  style?: React.CSSProperties
-  children: React.ReactNode
+  borderRadius?: number;
+  borderWidth?: number;
+  duration?: number;
+  color?: TColorProp;
+  animated?: boolean;
+  staticBorderColor?: string;
+  className?: string;
+  innerClassName?: string;
+  style?: React.CSSProperties;
+  children: React.ReactNode;
 }
 
 /**
@@ -74,4 +74,4 @@ export const ShineBorder = ({
       {children}
     </div>
   </div>
-)
+);

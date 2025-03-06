@@ -1,16 +1,16 @@
-'use client'
+'use client';
 
-import * as React from 'react'
-import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog'
+import * as React from 'react';
+import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
 
-import { cn } from '@/lib/utils'
-import { buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils';
+import { buttonVariants } from '@/components/ui/button';
 
-const AlertDialog = AlertDialogPrimitive.Root
+const AlertDialog = AlertDialogPrimitive.Root;
 
-const AlertDialogTrigger = AlertDialogPrimitive.Trigger
+const AlertDialogTrigger = AlertDialogPrimitive.Trigger;
 
-const AlertDialogPortal = AlertDialogPrimitive.Portal
+const AlertDialogPortal = AlertDialogPrimitive.Portal;
 
 const AlertDialogOverlay: React.FC<
   React.ComponentPropsWithRef<typeof AlertDialogPrimitive.Overlay>
@@ -23,8 +23,8 @@ const AlertDialogOverlay: React.FC<
     )}
     {...props}
   />
-)
-AlertDialogOverlay.displayName = AlertDialogPrimitive.Overlay.displayName
+);
+AlertDialogOverlay.displayName = AlertDialogPrimitive.Overlay.displayName;
 
 const AlertDialogContent: React.FC<
   React.ComponentPropsWithRef<typeof AlertDialogPrimitive.Content>
@@ -40,8 +40,8 @@ const AlertDialogContent: React.FC<
       {...props}
     />
   </AlertDialogPortal>
-)
-AlertDialogContent.displayName = AlertDialogPrimitive.Content.displayName
+);
+AlertDialogContent.displayName = AlertDialogPrimitive.Content.displayName;
 
 const AlertDialogHeader: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
   className,
@@ -54,8 +54,8 @@ const AlertDialogHeader: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
     )}
     {...props}
   />
-)
-AlertDialogHeader.displayName = 'AlertDialogHeader'
+);
+AlertDialogHeader.displayName = 'AlertDialogHeader';
 
 const AlertDialogFooter: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
   className,
@@ -68,8 +68,8 @@ const AlertDialogFooter: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
     )}
     {...props}
   />
-)
-AlertDialogFooter.displayName = 'AlertDialogFooter'
+);
+AlertDialogFooter.displayName = 'AlertDialogFooter';
 
 const AlertDialogTitle: React.FC<
   React.ComponentPropsWithRef<typeof AlertDialogPrimitive.Title>
@@ -79,8 +79,8 @@ const AlertDialogTitle: React.FC<
     className={cn('text-lg font-semibold', className)}
     {...props}
   />
-)
-AlertDialogTitle.displayName = AlertDialogPrimitive.Title.displayName
+);
+AlertDialogTitle.displayName = AlertDialogPrimitive.Title.displayName;
 
 const AlertDialogDescription: React.FC<
   React.ComponentPropsWithRef<typeof AlertDialogPrimitive.Description>
@@ -90,9 +90,9 @@ const AlertDialogDescription: React.FC<
     className={cn('text-sm text-muted-foreground', className)}
     {...props}
   />
-)
+);
 AlertDialogDescription.displayName =
-  AlertDialogPrimitive.Description.displayName
+  AlertDialogPrimitive.Description.displayName;
 
 const AlertDialogAction: React.FC<
   React.ComponentPropsWithRef<typeof AlertDialogPrimitive.Action>
@@ -102,8 +102,8 @@ const AlertDialogAction: React.FC<
     className={cn(buttonVariants(), className)}
     {...props}
   />
-)
-AlertDialogAction.displayName = AlertDialogPrimitive.Action.displayName
+);
+AlertDialogAction.displayName = AlertDialogPrimitive.Action.displayName;
 
 const AlertDialogCancel: React.FC<
   React.ComponentPropsWithRef<typeof AlertDialogPrimitive.Cancel>
@@ -117,19 +117,19 @@ const AlertDialogCancel: React.FC<
     )}
     {...props}
   />
-)
-AlertDialogCancel.displayName = AlertDialogPrimitive.Cancel.displayName
+);
+AlertDialogCancel.displayName = AlertDialogPrimitive.Cancel.displayName;
 
 export {
   AlertDialog,
-  AlertDialogPortal,
-  AlertDialogOverlay,
-  AlertDialogTrigger,
-  AlertDialogContent,
-  AlertDialogHeader,
-  AlertDialogFooter,
-  AlertDialogTitle,
-  AlertDialogDescription,
   AlertDialogAction,
-  AlertDialogCancel
-}
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogOverlay,
+  AlertDialogPortal,
+  AlertDialogTitle,
+  AlertDialogTrigger
+};

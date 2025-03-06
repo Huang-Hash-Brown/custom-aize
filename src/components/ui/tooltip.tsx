@@ -1,28 +1,28 @@
-'use client'
+'use client';
 
-import * as React from 'react'
-import * as TooltipPrimitive from '@radix-ui/react-tooltip'
+import * as React from 'react';
+import * as TooltipPrimitive from '@radix-ui/react-tooltip';
 import {
   AnimatePresence,
   motion,
   useMotionValue,
   useSpring,
   useTransform
-} from 'framer-motion'
+} from 'framer-motion';
 
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/utils';
 
-const TooltipProvider = TooltipPrimitive.Provider
-const Tooltip = TooltipPrimitive.Root
-const TooltipTrigger = TooltipPrimitive.Trigger
+const TooltipProvider = TooltipPrimitive.Provider;
+const Tooltip = TooltipPrimitive.Root;
+const TooltipTrigger = TooltipPrimitive.Trigger;
 
 interface AnimatedTooltipProps
   extends React.ComponentPropsWithRef<typeof TooltipPrimitive.Content> {
-  animated?: boolean
+  animated?: boolean;
 }
 
 const tooltipContentStyles =
-  'overflow-hidden rounded-md bg-muted px-3 py-1.5 text-xs text-muted-foreground data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2'
+  'overflow-hidden rounded-md bg-muted px-3 py-1.5 text-xs text-muted-foreground data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2';
 
 const TooltipContent: React.FC<AnimatedTooltipProps> = ({
   ref,
@@ -31,17 +31,17 @@ const TooltipContent: React.FC<AnimatedTooltipProps> = ({
   animated = true,
   ...props
 }) => {
-  const x = useMotionValue(0)
-  const springConfig = { stiffness: 100, damping: 5 }
-  const rotate = useSpring(useTransform(x, [-100, 100], [-3, 3]), springConfig)
+  const x = useMotionValue(0);
+  const springConfig = { stiffness: 100, damping: 5 };
+  const rotate = useSpring(useTransform(x, [-100, 100], [-3, 3]), springConfig);
 
   React.useEffect(() => {
     if (animated) {
       // Random rotation between -100 and 100
-      const randomRotation = Math.random() * 200 - 100
-      x.set(randomRotation)
+      const randomRotation = Math.random() * 200 - 100;
+      x.set(randomRotation);
     }
-  }, [animated, x])
+  }, [animated, x]);
 
   return (
     <AnimatePresence>
@@ -77,9 +77,9 @@ const TooltipContent: React.FC<AnimatedTooltipProps> = ({
         )}
       </TooltipPrimitive.Content>
     </AnimatePresence>
-  )
-}
+  );
+};
 
-TooltipContent.displayName = TooltipPrimitive.Content.displayName
+TooltipContent.displayName = TooltipPrimitive.Content.displayName;
 
-export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider }
+export { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger };

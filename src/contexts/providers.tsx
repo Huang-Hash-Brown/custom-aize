@@ -1,31 +1,31 @@
-'use client'
+'use client';
 
 /* eslint-disable react-compiler/react-compiler */
-import { useRef } from 'react'
-import { createQueryClient } from '@/contexts/query-client'
-import { TooltipProvider } from '@radix-ui/react-tooltip'
-import { QueryClientProvider, type QueryClient } from '@tanstack/react-query'
-import { ThemeProvider as NextThemesProvider } from 'next-themes'
+import { useRef } from 'react';
+import { createQueryClient } from '@/contexts/query-client';
+import { TooltipProvider } from '@radix-ui/react-tooltip';
+import { QueryClientProvider, type QueryClient } from '@tanstack/react-query';
+import { ThemeProvider as NextThemesProvider } from 'next-themes';
 
-import { Toaster } from '@/components/ui/sonner'
+import { Toaster } from '@/components/ui/sonner';
 
 export interface StoreProvidersProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export const StoreProviders = ({ children }: StoreProvidersProps) => ({
   children
-})
+});
 
 export interface ChatProvidersProps extends StoreProvidersProps {
-  children: React.ReactNode
-  disableEffect?: boolean
+  children: React.ReactNode;
+  disableEffect?: boolean;
 }
 
 export const Providers = ({ children }: React.PropsWithChildren) => {
-  const queryClientRef = useRef<QueryClient>(null)
+  const queryClientRef = useRef<QueryClient>(null);
   if (!queryClientRef.current) {
-    queryClientRef.current = createQueryClient()
+    queryClientRef.current = createQueryClient();
   }
 
   return (
@@ -40,5 +40,5 @@ export const Providers = ({ children }: React.PropsWithChildren) => {
         <TooltipProvider>{children}</TooltipProvider>
       </NextThemesProvider>
     </QueryClientProvider>
-  )
-}
+  );
+};

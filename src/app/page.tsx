@@ -1,11 +1,11 @@
-'use client'
+'use client';
 
-import { useTheme } from 'next-themes'
+import { useTheme } from 'next-themes';
 
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/button';
 
 export default function Page() {
-  const { theme, setTheme } = useTheme()
+  const { theme, setTheme } = useTheme();
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen">
@@ -77,5 +77,5 @@ export default function Page() {
         </ul>
       </div>
     </main>
-  )
+  );
 }

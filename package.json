@@ -31,6 +31,9 @@
     "dev": "next dev",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "fix": "pnpm format && pnpm lint:fix",
     "pages:build": "pnpx @cloudflare/next-on-pages",
     "prepare": "husky",
     "preview": "pnpm pages:build && wrangler pages dev",
@@ -152,6 +155,9 @@
     "*.{js,jsx,ts,tsx}": [
       "prettier --write",
       "eslint --fix"
+    ],
+    "*.{json,md,css}": [
+      "prettier --write"
     ]
   },
   "config": {

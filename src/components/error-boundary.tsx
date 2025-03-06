@@ -1,8 +1,8 @@
-import { AlertTriangle, RefreshCcw } from 'lucide-react'
-import { ErrorBoundary as ReactErrorBoundary } from 'react-error-boundary'
-import { useTranslation } from 'react-i18next'
+import { AlertTriangle, RefreshCcw } from 'lucide-react';
+import { ErrorBoundary as ReactErrorBoundary } from 'react-error-boundary';
+import { useTranslation } from 'react-i18next';
 
-import { logger } from '@/lib/logger/client-logger'
+import { logger } from '@/lib/logger/client-logger';
 
 import {
   AlertDialog,
@@ -11,17 +11,17 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle
-} from './ui/alert-dialog'
-import { Button } from './ui/button'
+} from './ui/alert-dialog';
+import { Button } from './ui/button';
 
 interface FallbackProps {
-  error: Error
-  resetErrorBoundary: () => void
+  error: Error;
+  resetErrorBoundary: () => void;
 }
 
 // Error fallback component
 const ErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <AlertDialog defaultOpen>
@@ -53,25 +53,25 @@ const ErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
-  )
-}
+  );
+};
 
 // Reusable ErrorBoundary component
 export const AppErrorBoundary = ({
   children
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) => (
   <ReactErrorBoundary
     FallbackComponent={ErrorFallback}
     onError={error => {
-      logger.error('Error caught by ErrorBoundary:', error)
+      logger.error('Error caught by ErrorBoundary:', error);
     }}
     onReset={() => {
       // Optional: Reset the app state here
-      window.location.reload()
+      window.location.reload();
     }}
   >
     {children}
   </ReactErrorBoundary>
-)
+);

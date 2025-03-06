@@ -1,7 +1,7 @@
-import { capitalize } from 'es-toolkit'
-import { useTranslation } from 'react-i18next'
+import { capitalize } from 'es-toolkit';
+import { useTranslation } from 'react-i18next';
 
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/utils';
 
 export type StatusState =
   | 'connected'
@@ -9,12 +9,12 @@ export type StatusState =
   | 'error'
   | 'completed'
   | 'processing'
-  | 'pending'
+  | 'pending';
 
 interface StatusBadgeProps {
-  state: StatusState
-  label?: string
-  className?: string
+  state: StatusState;
+  label?: string;
+  className?: string;
 }
 
 export const StatusBadge = ({ state, label, className }: StatusBadgeProps) => {
@@ -26,10 +26,10 @@ export const StatusBadge = ({ state, label, className }: StatusBadgeProps) => {
     disconnected: 'text-yellow-500 bg-yellow-500/10 border-yellow-500/20',
     pending: 'text-yellow-500 bg-yellow-500/10 border-yellow-500/20',
     processing: 'text-blue-500 bg-blue-500/10 border-blue-500/20'
-  }[state]
+  }[state];
 
-  const { t } = useTranslation()
-  const defaultLabel = capitalize(t(`webview.common.${state}`))
+  const { t } = useTranslation();
+  const defaultLabel = capitalize(t(`webview.common.${state}`));
 
   return (
     <div className={cn('space-y-1', className)}>
@@ -42,5 +42,5 @@ export const StatusBadge = ({ state, label, className }: StatusBadgeProps) => {
         {label || defaultLabel}
       </div>
     </div>
-  )
-}
+  );
+};

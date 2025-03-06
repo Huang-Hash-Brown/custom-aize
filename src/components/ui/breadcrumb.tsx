@@ -1,17 +1,17 @@
-'use client'
+'use client';
 
-import * as React from 'react'
-import { ChevronRightIcon, DotsHorizontalIcon } from '@radix-ui/react-icons'
-import { Slot } from '@radix-ui/react-slot'
+import * as React from 'react';
+import { ChevronRightIcon, DotsHorizontalIcon } from '@radix-ui/react-icons';
+import { Slot } from '@radix-ui/react-slot';
 
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/utils';
 
 const Breadcrumb: React.FC<
   React.ComponentProps<'nav'> & {
-    separator?: React.ReactNode
+    separator?: React.ReactNode;
   }
-> = ({ ref, ...props }) => <nav ref={ref} aria-label="breadcrumb" {...props} />
-Breadcrumb.displayName = 'Breadcrumb'
+> = ({ ref, ...props }) => <nav ref={ref} aria-label="breadcrumb" {...props} />;
+Breadcrumb.displayName = 'Breadcrumb';
 
 const BreadcrumbList: React.FC<React.ComponentProps<'ol'>> = ({
   className,
@@ -24,8 +24,8 @@ const BreadcrumbList: React.FC<React.ComponentProps<'ol'>> = ({
     )}
     {...props}
   />
-)
-BreadcrumbList.displayName = 'BreadcrumbList'
+);
+BreadcrumbList.displayName = 'BreadcrumbList';
 
 const BreadcrumbItem: React.FC<React.ComponentProps<'li'>> = ({
   ref,
@@ -37,15 +37,15 @@ const BreadcrumbItem: React.FC<React.ComponentProps<'li'>> = ({
     className={cn('inline-flex items-center gap-1.5', className)}
     {...props}
   />
-)
-BreadcrumbItem.displayName = 'BreadcrumbItem'
+);
+BreadcrumbItem.displayName = 'BreadcrumbItem';
 
 const BreadcrumbLink: React.FC<
   React.ComponentProps<'a'> & {
-    asChild?: boolean
+    asChild?: boolean;
   }
 > = ({ ref, asChild, className, ...props }) => {
-  const Comp = asChild ? Slot : 'a'
+  const Comp = asChild ? Slot : 'a';
 
   return (
     <Comp
@@ -53,9 +53,9 @@ const BreadcrumbLink: React.FC<
       className={cn('transition-colors hover:text-foreground', className)}
       {...props}
     />
-  )
-}
-BreadcrumbLink.displayName = 'BreadcrumbLink'
+  );
+};
+BreadcrumbLink.displayName = 'BreadcrumbLink';
 
 const BreadcrumbPage: React.FC<React.ComponentProps<'span'>> = ({
   ref,
@@ -70,8 +70,8 @@ const BreadcrumbPage: React.FC<React.ComponentProps<'span'>> = ({
     className={cn('font-normal text-foreground', className)}
     {...props}
   />
-)
-BreadcrumbPage.displayName = 'BreadcrumbPage'
+);
+BreadcrumbPage.displayName = 'BreadcrumbPage';
 
 const BreadcrumbSeparator = ({
   children,
@@ -86,8 +86,8 @@ const BreadcrumbSeparator = ({
   >
     {children ?? <ChevronRightIcon />}
   </li>
-)
-BreadcrumbSeparator.displayName = 'BreadcrumbSeparator'
+);
+BreadcrumbSeparator.displayName = 'BreadcrumbSeparator';
 
 const BreadcrumbEllipsis = ({
   className,
@@ -102,15 +102,15 @@ const BreadcrumbEllipsis = ({
     <DotsHorizontalIcon className="h-4 w-4" />
     <span className="sr-only">More</span>
   </span>
-)
-BreadcrumbEllipsis.displayName = 'BreadcrumbElipssis'
+);
+BreadcrumbEllipsis.displayName = 'BreadcrumbElipssis';
 
 export {
   Breadcrumb,
-  BreadcrumbList,
+  BreadcrumbEllipsis,
   BreadcrumbItem,
   BreadcrumbLink,
+  BreadcrumbList,
   BreadcrumbPage,
-  BreadcrumbSeparator,
-  BreadcrumbEllipsis
-}
+  BreadcrumbSeparator
+};

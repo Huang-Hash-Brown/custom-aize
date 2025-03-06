@@ -1,12 +1,12 @@
-'use client'
+'use client';
 
-import * as React from 'react'
+import * as React from 'react';
 
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/utils';
 
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  ref?: React.Ref<HTMLDivElement>
-  withEffect?: boolean
+  ref?: React.Ref<HTMLDivElement>;
+  withEffect?: boolean;
 }
 
 const Card: React.FC<CardProps> = ({
@@ -36,8 +36,8 @@ const Card: React.FC<CardProps> = ({
       props.children
     )}
   </div>
-)
-Card.displayName = 'Card'
+);
+Card.displayName = 'Card';
 
 const CardHeader: React.FC<
   React.HTMLAttributes<HTMLDivElement> & { ref?: React.Ref<HTMLDivElement> }
@@ -47,12 +47,12 @@ const CardHeader: React.FC<
     className={cn('flex flex-col space-y-1.5 p-6', className)}
     {...props}
   />
-)
-CardHeader.displayName = 'CardHeader'
+);
+CardHeader.displayName = 'CardHeader';
 
 const CardTitle: React.FC<
   React.HTMLAttributes<HTMLHeadingElement> & {
-    ref?: React.Ref<HTMLHeadingElement>
+    ref?: React.Ref<HTMLHeadingElement>;
   }
 > = ({ ref, className, ...props }) => (
   <h3
@@ -60,12 +60,12 @@ const CardTitle: React.FC<
     className={cn('font-semibold leading-none tracking-tight', className)}
     {...props}
   />
-)
-CardTitle.displayName = 'CardTitle'
+);
+CardTitle.displayName = 'CardTitle';
 
 const CardDescription: React.FC<
   React.HTMLAttributes<HTMLParagraphElement> & {
-    ref?: React.Ref<HTMLParagraphElement>
+    ref?: React.Ref<HTMLParagraphElement>;
   }
 > = ({ ref, className, ...props }) => (
   <p
@@ -73,15 +73,15 @@ const CardDescription: React.FC<
     className={cn('text-sm text-muted-foreground', className)}
     {...props}
   />
-)
-CardDescription.displayName = 'CardDescription'
+);
+CardDescription.displayName = 'CardDescription';
 
 const CardContent: React.FC<
   React.HTMLAttributes<HTMLDivElement> & { ref?: React.Ref<HTMLDivElement> }
 > = ({ ref, className, ...props }) => (
   <div ref={ref} className={cn('p-6 pt-0', className)} {...props} />
-)
-CardContent.displayName = 'CardContent'
+);
+CardContent.displayName = 'CardContent';
 
 const CardFooter: React.FC<
   React.HTMLAttributes<HTMLDivElement> & { ref?: React.Ref<HTMLDivElement> }
@@ -91,7 +91,14 @@ const CardFooter: React.FC<
     className={cn('flex items-center p-6 pt-0', className)}
     {...props}
   />
-)
-CardFooter.displayName = 'CardFooter'
+);
+CardFooter.displayName = 'CardFooter';
 
-export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }
+export {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle
+};

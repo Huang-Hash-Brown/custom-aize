@@ -1,20 +1,20 @@
-'use client'
+'use client';
 
-import * as React from 'react'
+import * as React from 'react';
 import {
   CheckIcon,
   ChevronRightIcon,
   DotFilledIcon
-} from '@radix-ui/react-icons'
-import * as MenubarPrimitive from '@radix-ui/react-menubar'
+} from '@radix-ui/react-icons';
+import * as MenubarPrimitive from '@radix-ui/react-menubar';
 
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/utils';
 
-const MenubarMenu = MenubarPrimitive.Menu
-const MenubarGroup = MenubarPrimitive.Group
-const MenubarPortal = MenubarPrimitive.Portal
-const MenubarSub = MenubarPrimitive.Sub
-const MenubarRadioGroup = MenubarPrimitive.RadioGroup
+const MenubarMenu = MenubarPrimitive.Menu;
+const MenubarGroup = MenubarPrimitive.Group;
+const MenubarPortal = MenubarPrimitive.Portal;
+const MenubarSub = MenubarPrimitive.Sub;
+const MenubarRadioGroup = MenubarPrimitive.RadioGroup;
 
 const Menubar: React.FC<
   React.ComponentPropsWithRef<typeof MenubarPrimitive.Root>
@@ -27,8 +27,8 @@ const Menubar: React.FC<
     )}
     {...props}
   />
-)
-Menubar.displayName = MenubarPrimitive.Root.displayName
+);
+Menubar.displayName = MenubarPrimitive.Root.displayName;
 
 const MenubarTrigger: React.FC<
   React.ComponentPropsWithRef<typeof MenubarPrimitive.Trigger>
@@ -41,12 +41,12 @@ const MenubarTrigger: React.FC<
     )}
     {...props}
   />
-)
-MenubarTrigger.displayName = MenubarPrimitive.Trigger.displayName
+);
+MenubarTrigger.displayName = MenubarPrimitive.Trigger.displayName;
 
 const MenubarSubTrigger: React.FC<
   React.ComponentPropsWithRef<typeof MenubarPrimitive.SubTrigger> & {
-    inset?: boolean
+    inset?: boolean;
   }
 > = ({ ref, className, inset, children, ...props }) => (
   <MenubarPrimitive.SubTrigger
@@ -61,8 +61,8 @@ const MenubarSubTrigger: React.FC<
     {children}
     <ChevronRightIcon className="ml-auto h-4 w-4" />
   </MenubarPrimitive.SubTrigger>
-)
-MenubarSubTrigger.displayName = MenubarPrimitive.SubTrigger.displayName
+);
+MenubarSubTrigger.displayName = MenubarPrimitive.SubTrigger.displayName;
 
 const MenubarSubContent: React.FC<
   React.ComponentPropsWithRef<typeof MenubarPrimitive.SubContent>
@@ -75,8 +75,8 @@ const MenubarSubContent: React.FC<
     )}
     {...props}
   />
-)
-MenubarSubContent.displayName = MenubarPrimitive.SubContent.displayName
+);
+MenubarSubContent.displayName = MenubarPrimitive.SubContent.displayName;
 
 const MenubarContent: React.FC<
   React.ComponentPropsWithRef<typeof MenubarPrimitive.Content>
@@ -101,12 +101,12 @@ const MenubarContent: React.FC<
       {...props}
     />
   </MenubarPrimitive.Portal>
-)
-MenubarContent.displayName = MenubarPrimitive.Content.displayName
+);
+MenubarContent.displayName = MenubarPrimitive.Content.displayName;
 
 const MenubarItem: React.FC<
   React.ComponentPropsWithRef<typeof MenubarPrimitive.Item> & {
-    inset?: boolean
+    inset?: boolean;
   }
 > = ({ ref, className, inset, ...props }) => (
   <MenubarPrimitive.Item
@@ -118,8 +118,8 @@ const MenubarItem: React.FC<
     )}
     {...props}
   />
-)
-MenubarItem.displayName = MenubarPrimitive.Item.displayName
+);
+MenubarItem.displayName = MenubarPrimitive.Item.displayName;
 
 const MenubarCheckboxItem: React.FC<
   React.ComponentPropsWithRef<typeof MenubarPrimitive.CheckboxItem>
@@ -140,8 +140,8 @@ const MenubarCheckboxItem: React.FC<
     </span>
     {children}
   </MenubarPrimitive.CheckboxItem>
-)
-MenubarCheckboxItem.displayName = MenubarPrimitive.CheckboxItem.displayName
+);
+MenubarCheckboxItem.displayName = MenubarPrimitive.CheckboxItem.displayName;
 
 const MenubarRadioItem: React.FC<
   React.ComponentPropsWithRef<typeof MenubarPrimitive.RadioItem>
@@ -161,12 +161,12 @@ const MenubarRadioItem: React.FC<
     </span>
     {children}
   </MenubarPrimitive.RadioItem>
-)
-MenubarRadioItem.displayName = MenubarPrimitive.RadioItem.displayName
+);
+MenubarRadioItem.displayName = MenubarPrimitive.RadioItem.displayName;
 
 const MenubarLabel: React.FC<
   React.ComponentPropsWithRef<typeof MenubarPrimitive.Label> & {
-    inset?: boolean
+    inset?: boolean;
   }
 > = ({ ref, className, inset, ...props }) => (
   <MenubarPrimitive.Label
@@ -178,8 +178,8 @@ const MenubarLabel: React.FC<
     )}
     {...props}
   />
-)
-MenubarLabel.displayName = MenubarPrimitive.Label.displayName
+);
+MenubarLabel.displayName = MenubarPrimitive.Label.displayName;
 
 const MenubarSeparator: React.FC<
   React.ComponentPropsWithRef<typeof MenubarPrimitive.Separator>
@@ -189,8 +189,8 @@ const MenubarSeparator: React.FC<
     className={cn('-mx-1 my-1 h-px bg-muted', className)}
     {...props}
   />
-)
-MenubarSeparator.displayName = MenubarPrimitive.Separator.displayName
+);
+MenubarSeparator.displayName = MenubarPrimitive.Separator.displayName;
 
 const MenubarShortcut = ({
   className,
@@ -203,24 +203,24 @@ const MenubarShortcut = ({
     )}
     {...props}
   />
-)
-MenubarShortcut.displayName = 'MenubarShortcut'
+);
+MenubarShortcut.displayName = 'MenubarShortcut';
 
 export {
   Menubar,
-  MenubarMenu,
-  MenubarTrigger,
-  MenubarContent,
-  MenubarItem,
-  MenubarSeparator,
-  MenubarLabel,
   MenubarCheckboxItem,
+  MenubarContent,
+  MenubarGroup,
+  MenubarItem,
+  MenubarLabel,
+  MenubarMenu,
+  MenubarPortal,
   MenubarRadioGroup,
   MenubarRadioItem,
-  MenubarPortal,
+  MenubarSeparator,
+  MenubarShortcut,
+  MenubarSub,
   MenubarSubContent,
   MenubarSubTrigger,
-  MenubarGroup,
-  MenubarSub,
-  MenubarShortcut
-}
+  MenubarTrigger
+};

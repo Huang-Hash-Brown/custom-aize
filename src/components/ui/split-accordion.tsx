@@ -1,28 +1,28 @@
-'use client'
+'use client';
 
-import * as React from 'react'
-import { ChevronDownIcon } from '@radix-ui/react-icons'
-import { AnimatePresence, motion } from 'framer-motion'
+import * as React from 'react';
+import { ChevronDownIcon } from '@radix-ui/react-icons';
+import { AnimatePresence, motion } from 'framer-motion';
 
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/utils';
 
-import { Button, type ButtonProps } from './button'
+import { Button, type ButtonProps } from './button';
 
 type SplitAccordionContextValue = {
-  value?: string
-  onValueChange: (value: string | undefined) => void
-}
+  value?: string;
+  onValueChange: (value: string | undefined) => void;
+};
 
 const SplitAccordionContext = React.createContext<
   SplitAccordionContextValue | undefined
->(undefined)
+>(undefined);
 
 interface SplitAccordionProps {
-  value?: string
-  defaultValue?: string
-  onValueChange?: (value: string | undefined) => void
-  children: React.ReactNode
-  className?: string
+  value?: string;
+  defaultValue?: string;
+  onValueChange?: (value: string | undefined) => void;
+  children: React.ReactNode;
+  className?: string;
 }
 
 export const SplitAccordion: React.FC<SplitAccordionProps> = ({
@@ -34,20 +34,20 @@ export const SplitAccordion: React.FC<SplitAccordionProps> = ({
 }) => {
   const [uncontrolledValue, setUncontrolledValue] = React.useState<
     string | undefined
-  >(defaultValue)
+  >(defaultValue);
 
-  const isControlled = controlledValue !== undefined
-  const value = isControlled ? controlledValue : uncontrolledValue
+  const isControlled = controlledValue !== undefined;
+  const value = isControlled ? controlledValue : uncontrolledValue;
 
   const handleValueChange = React.useCallback(
     (newValue: string | undefined) => {
       if (!isControlled) {
-        setUncontrolledValue(newValue)
+        setUncontrolledValue(newValue);
       }
-      onValueChange?.(newValue)
+      onValueChange?.(newValue);
     },
     [isControlled, onValueChange]
-  )
+  );
 
   return (
     <SplitAccordionContext.Provider
@@ -55,12 +55,12 @@ export const SplitAccordion: React.FC<SplitAccordionProps> = ({
     >
       <div className={cn('flex flex-col w-full', className)}>{children}</div>
     </SplitAccordionContext.Provider>
-  )
-}
+  );
+};
 
 interface SplitAccordionTriggerProps extends ButtonProps {
-  value: string
-  iconClassName?: string
+  value: string;
+  iconClassName?: string;
 }
 
 export const SplitAccordionTrigger: React.FC<SplitAccordionTriggerProps> = ({
@@ -70,11 +70,11 @@ export const SplitAccordionTrigger: React.FC<SplitAccordionTriggerProps> = ({
   iconClassName,
   ...rest
 }) => {
-  const context = React.useContext(SplitAccordionContext)
+  const context = React.useContext(SplitAccordionContext);
   if (!context)
-    throw new Error('SplitAccordionTrigger must be used within SplitAccordion')
+    throw new Error('SplitAccordionTrigger must be used within SplitAccordion');
 
-  const isActive = context.value === triggerValue
+  const isActive = context.value === triggerValue;
 
   return (
     <Button
@@ -90,13 +90,13 @@ export const SplitAccordionTrigger: React.FC<SplitAccordionTriggerProps> = ({
         <ChevronDownIcon className={cn('size-4', iconClassName)} />
       </motion.span>
     </Button>
-  )
-}
+  );
+};
 
 interface SplitAccordionContentProps {
-  value: string
-  children: React.ReactNode
-  className?: string
+  value: string;
+  children: React.ReactNode;
+  className?: string;
 }
 
 export const SplitAccordionContent: React.FC<SplitAccordionContentProps> = ({
@@ -104,11 +104,11 @@ export const SplitAccordionContent: React.FC<SplitAccordionContentProps> = ({
   children,
   className
 }) => {
-  const context = React.useContext(SplitAccordionContext)
+  const context = React.useContext(SplitAccordionContext);
   if (!context)
-    throw new Error('SplitAccordionContent must be used within SplitAccordion')
+    throw new Error('SplitAccordionContent must be used within SplitAccordion');
 
-  const isActive = context.value === contentValue
+  const isActive = context.value === contentValue;
 
   return (
     <AnimatePresence initial={false}>
@@ -125,5 +125,5 @@ export const SplitAccordionContent: React.FC<SplitAccordionContentProps> = ({
         </motion.div>
       )}
     </AnimatePresence>
-  )
-}
+  );
+};

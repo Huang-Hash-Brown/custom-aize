@@ -1,9 +1,9 @@
-'use client'
+'use client';
 
-import { ReactNode } from 'react'
-import { useTranslation } from 'react-i18next'
+import { ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/utils';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -14,25 +14,25 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger
-} from '@/components/ui/alert-dialog'
+} from '@/components/ui/alert-dialog';
 
 interface AlertActionProps {
   // Trigger element props
-  children: ReactNode
-  className?: string
-  asChild?: boolean
+  children: ReactNode;
+  className?: string;
+  asChild?: boolean;
 
   // Alert dialog props
-  title?: string
-  description?: string
-  cancelText?: string
-  confirmText?: string
-  variant?: 'default' | 'destructive'
-  disabled?: boolean
+  title?: string;
+  description?: string;
+  cancelText?: string;
+  confirmText?: string;
+  variant?: 'default' | 'destructive';
+  disabled?: boolean;
 
   // Callbacks
-  onConfirm: () => void | Promise<void>
-  onCancel?: () => void
+  onConfirm: () => void | Promise<void>;
+  onCancel?: () => void;
 }
 
 export const AlertAction = ({
@@ -53,16 +53,16 @@ export const AlertAction = ({
   onConfirm,
   onCancel
 }: AlertActionProps) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
-  const defaultTitle = t('webview.alertAction.areYouSure')
-  const defaultDescription = t('webview.alertAction.cannotBeUndone')
-  const defaultCancelText = t('webview.alertAction.cancel')
-  const defaultConfirmText = t('webview.alertAction.continue')
+  const defaultTitle = t('webview.alertAction.areYouSure');
+  const defaultDescription = t('webview.alertAction.cannotBeUndone');
+  const defaultCancelText = t('webview.alertAction.cancel');
+  const defaultConfirmText = t('webview.alertAction.continue');
 
   const handleConfirm = async () => {
-    await onConfirm()
-  }
+    await onConfirm();
+  };
 
   return (
     <AlertDialog>
@@ -94,5 +94,5 @@ export const AlertAction = ({
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
-  )
-}
+  );
+};

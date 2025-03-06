@@ -1,8 +1,8 @@
-'use client'
+'use client';
 
-import * as React from 'react'
+import * as React from 'react';
 
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/utils';
 
 const Table: React.FC<React.ComponentPropsWithRef<'table'>> = ({
   ref,
@@ -16,8 +16,8 @@ const Table: React.FC<React.ComponentPropsWithRef<'table'>> = ({
       {...props}
     />
   </div>
-)
-Table.displayName = 'Table'
+);
+Table.displayName = 'Table';
 
 const TableHeader: React.FC<React.ComponentPropsWithRef<'thead'>> = ({
   ref,
@@ -25,8 +25,8 @@ const TableHeader: React.FC<React.ComponentPropsWithRef<'thead'>> = ({
   ...props
 }) => (
   <thead ref={ref} className={cn('[&_tr]:border-b', className)} {...props} />
-)
-TableHeader.displayName = 'TableHeader'
+);
+TableHeader.displayName = 'TableHeader';
 
 const TableBody: React.FC<React.ComponentPropsWithRef<'tbody'>> = ({
   ref,
@@ -38,8 +38,8 @@ const TableBody: React.FC<React.ComponentPropsWithRef<'tbody'>> = ({
     className={cn('[&_tr:last-child]:border-0', className)}
     {...props}
   />
-)
-TableBody.displayName = 'TableBody'
+);
+TableBody.displayName = 'TableBody';
 
 const TableFooter: React.FC<React.ComponentPropsWithRef<'tfoot'>> = ({
   ref,
@@ -54,8 +54,8 @@ const TableFooter: React.FC<React.ComponentPropsWithRef<'tfoot'>> = ({
     )}
     {...props}
   />
-)
-TableFooter.displayName = 'TableFooter'
+);
+TableFooter.displayName = 'TableFooter';
 
 const TableRow: React.FC<React.ComponentPropsWithRef<'tr'>> = ({
   ref,
@@ -70,8 +70,8 @@ const TableRow: React.FC<React.ComponentPropsWithRef<'tr'>> = ({
     )}
     {...props}
   />
-)
-TableRow.displayName = 'TableRow'
+);
+TableRow.displayName = 'TableRow';
 
 const TableHead: React.FC<React.ComponentPropsWithRef<'th'>> = ({
   ref,
@@ -86,8 +86,8 @@ const TableHead: React.FC<React.ComponentPropsWithRef<'th'>> = ({
     )}
     {...props}
   />
-)
-TableHead.displayName = 'TableHead'
+);
+TableHead.displayName = 'TableHead';
 
 const TableCell: React.FC<React.ComponentPropsWithRef<'td'>> = ({
   ref,
@@ -102,8 +102,8 @@ const TableCell: React.FC<React.ComponentPropsWithRef<'td'>> = ({
     )}
     {...props}
   />
-)
-TableCell.displayName = 'TableCell'
+);
+TableCell.displayName = 'TableCell';
 
 const TableCaption: React.FC<React.ComponentPropsWithRef<'caption'>> = ({
   ref,
@@ -115,16 +115,16 @@ const TableCaption: React.FC<React.ComponentPropsWithRef<'caption'>> = ({
     className={cn('mt-4 text-sm text-muted-foreground', className)}
     {...props}
   />
-)
-TableCaption.displayName = 'TableCaption'
+);
+TableCaption.displayName = 'TableCaption';
 
 export {
   Table,
-  TableHeader,
   TableBody,
+  TableCaption,
+  TableCell,
   TableFooter,
   TableHead,
-  TableRow,
-  TableCell,
-  TableCaption
-}
+  TableHeader,
+  TableRow
+};

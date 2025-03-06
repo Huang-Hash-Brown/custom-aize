@@ -13,3 +13,11 @@ kube-manifests/
 buildspec.yml
 deployspec.yml
 /docker
+out
+build
+.DS_Store
+.vercel
+.env*
+public
+.vscode
+.husky

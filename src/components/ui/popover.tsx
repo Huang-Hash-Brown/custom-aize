@@ -1,29 +1,29 @@
-'use client'
+'use client';
 
-import React, { useId } from 'react'
-import * as PopoverPrimitive from '@radix-ui/react-popover'
-import { AnimatePresence, motion, MotionConfig } from 'framer-motion'
+import React, { useId } from 'react';
+import * as PopoverPrimitive from '@radix-ui/react-popover';
+import { AnimatePresence, motion, MotionConfig } from 'framer-motion';
 
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/utils';
 
 const TRANSITION = {
   type: 'spring',
   bounce: 0.1,
   duration: 0.4
-}
+};
 
-const Popover = PopoverPrimitive.Root
+const Popover = PopoverPrimitive.Root;
 
-const PopoverTrigger = PopoverPrimitive.Trigger
+const PopoverTrigger = PopoverPrimitive.Trigger;
 
-const PopoverAnchor = PopoverPrimitive.Anchor
+const PopoverAnchor = PopoverPrimitive.Anchor;
 
 interface PopoverContentProps
   extends React.ComponentPropsWithRef<typeof PopoverPrimitive.Content> {
-  withBlur?: boolean
-  blurClassName?: string
-  innerClassName?: string
-  animate?: boolean
+  withBlur?: boolean;
+  blurClassName?: string;
+  innerClassName?: string;
+  animate?: boolean;
 }
 
 const PopoverContent: React.FC<PopoverContentProps> = ({
@@ -38,7 +38,7 @@ const PopoverContent: React.FC<PopoverContentProps> = ({
   animate = true,
   ...props
 }) => {
-  const uniqueId = useId()
+  const uniqueId = useId();
 
   return (
     <MotionConfig transition={TRANSITION}>
@@ -80,8 +80,8 @@ const PopoverContent: React.FC<PopoverContentProps> = ({
         </AnimatePresence>
       </PopoverPrimitive.Portal>
     </MotionConfig>
-  )
-}
-PopoverContent.displayName = PopoverPrimitive.Content.displayName
+  );
+};
+PopoverContent.displayName = PopoverPrimitive.Content.displayName;
 
-export { Popover, PopoverTrigger, PopoverContent, PopoverAnchor }
+export { Popover, PopoverAnchor, PopoverContent, PopoverTrigger };

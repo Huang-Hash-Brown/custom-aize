@@ -16,3 +16,5 @@ cz-adapter.cjs
 LICENSE
 *.vue
 *.html
+out
+build

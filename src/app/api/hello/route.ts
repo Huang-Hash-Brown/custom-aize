@@ -1,9 +1,9 @@
-import type { NextRequest } from 'next/server'
+import type { NextRequest } from 'next/server';
 
-export const runtime = 'edge'
+export const runtime = 'edge';
 
 export const GET = async (request: NextRequest) => {
-  let responseText = 'Hello World'
+  let responseText = 'Hello World';
 
   // In the edge runtime you can use Bindings that are available in your application
   // (for more details see:
@@ -17,5 +17,5 @@ export const GET = async (request: NextRequest) => {
   // const suffix = await myKv.get('suffix')
   // responseText += suffix
 
-  return new Response(responseText)
-}
+  return new Response(responseText);
+};

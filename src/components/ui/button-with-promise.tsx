@@ -1,36 +1,36 @@
-'use client'
+'use client';
 
-import { useEffect, useState } from 'react'
-import { CheckIcon, XIcon } from 'lucide-react'
+import { useEffect, useState } from 'react';
+import { CheckIcon, XIcon } from 'lucide-react';
 
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/utils';
 
-import { Button, type ButtonProps } from './button'
-import { LoadingSpinner } from './loading-spinner'
+import { Button, type ButtonProps } from './button';
+import { LoadingSpinner } from './loading-spinner';
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger
-} from './tooltip'
+} from './tooltip';
 
 export interface ButtonWithPromiseRef extends HTMLButtonElement {}
 
 export type ButtonWithPromiseProps = ButtonProps & {
-  ref?: React.Ref<ButtonWithPromiseRef>
-  tooltip?: string
-  side?: React.ComponentProps<typeof TooltipContent>['side']
-  promiseFn: () => Promise<any>
-  successDuration?: number
-  errorDuration?: number
-  iconClassName?: string
-  onSuccess?: () => void
-  onError?: (error: any) => void
-  loadingText?: string
-  successText?: string
-  errorText?: string
-  buildChildren?: (icon?: React.ReactNode | null) => React.ReactNode
-}
+  ref?: React.Ref<ButtonWithPromiseRef>;
+  tooltip?: string;
+  side?: React.ComponentProps<typeof TooltipContent>['side'];
+  promiseFn: () => Promise<any>;
+  successDuration?: number;
+  errorDuration?: number;
+  iconClassName?: string;
+  onSuccess?: () => void;
+  onError?: (error: any) => void;
+  loadingText?: string;
+  successText?: string;
+  errorText?: string;
+  buildChildren?: (icon?: React.ReactNode | null) => React.ReactNode;
+};
 
 export const ButtonWithPromise: React.FC<ButtonWithPromiseProps> = ({
   ref,
@@ -53,70 +53,70 @@ export const ButtonWithPromise: React.FC<ButtonWithPromiseProps> = ({
 }) => {
   const [status, setStatus] = useState<
     'idle' | 'loading' | 'success' | 'error'
-  >('idle')
+  >('idle');
 
   useEffect(() => {
-    let timer: NodeJS.Timeout
+    let timer: NodeJS.Timeout;
     if (status === 'success') {
       timer = setTimeout(() => {
-        setStatus('idle')
-      }, successDuration)
+        setStatus('idle');
+      }, successDuration);
     } else if (status === 'error') {
       timer = setTimeout(() => {
-        setStatus('idle')
-      }, errorDuration)
+        setStatus('idle');
+      }, errorDuration);
     }
 
     return () => {
-      if (timer) clearTimeout(timer)
-    }
-  }, [status, successDuration, errorDuration])
+      if (timer) clearTimeout(timer);
+    };
+  }, [status, successDuration, errorDuration]);
 
   const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
     if (rest.onClick) {
-      rest.onClick(e)
+      rest.onClick(e);
     }
 
-    if (status === 'loading') return
+    if (status === 'loading') return;
 
-    setStatus('loading')
+    setStatus('loading');
     try {
-      await promiseFn()
-      setStatus('success')
-      onSuccess?.()
+      await promiseFn();
+      setStatus('success');
+      onSuccess?.();
     } catch (error) {
-      setStatus('error')
-      onError?.(error)
+      setStatus('error');
+      onError?.(error);
     }
-  }
+  };
 
   const getIcon = (): React.ReactNode => {
-    const finalIconClassName = cn('size-4', iconClassName)
+    const finalIconClassName = cn('size-4', iconClassName);
     switch (status) {
       case 'loading':
-        return <LoadingSpinner className={finalIconClassName} />
+        return <LoadingSpinner className={finalIconClassName} />;
       case 'success':
-        return <CheckIcon className={finalIconClassName} />
+        return <CheckIcon className={finalIconClassName} />;
       case 'error':
-        return <XIcon className={finalIconClassName} />
+        return <XIcon className={finalIconClassName} />;
       default:
-        return null
+        return null;
     }
-  }
-  const icon = getIcon()
+  };
+  const icon = getIcon();
 
   const getTooltipText = () => {
     switch (status) {
       case 'loading':
-        return loadingText || tooltip
+        return loadingText || tooltip;
       case 'success':
-        return successText || tooltip
+        return successText || tooltip;
       case 'error':
-        return errorText || tooltip
+        return errorText || tooltip;
       default:
-        return tooltip
+        return tooltip;
     }
-  }
+  };
 
   const button = (
     <Button
@@ -138,10 +138,10 @@ export const ButtonWithPromise: React.FC<ButtonWithPromiseProps> = ({
           ? children
           : icon}
     </Button>
-  )
+  );
 
   if (!tooltip && !loadingText && !successText && !errorText) {
-    return button
+    return button;
   }
 
   return (
@@ -155,5 +155,5 @@ export const ButtonWithPromise: React.FC<ButtonWithPromiseProps> = ({
         )}
       </Tooltip>
     </TooltipProvider>
-  )
-}
+  );
+};

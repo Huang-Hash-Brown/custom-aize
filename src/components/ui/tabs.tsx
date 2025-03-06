@@ -1,12 +1,12 @@
-'use client'
+'use client';
 
-import * as React from 'react'
-import * as TabsPrimitive from '@radix-ui/react-tabs'
-import { cva, type VariantProps } from 'class-variance-authority'
+import * as React from 'react';
+import * as TabsPrimitive from '@radix-ui/react-tabs';
+import { cva, type VariantProps } from 'class-variance-authority';
 
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/utils';
 
-const Tabs = TabsPrimitive.Root
+const Tabs = TabsPrimitive.Root;
 
 const tabListVariants = cva(
   'inline-flex items-center justify-center bg-muted text-muted-foreground rounded-lg p-1',
@@ -22,7 +22,7 @@ const tabListVariants = cva(
       mode: 'default'
     }
   }
-)
+);
 
 const tabsTriggerVariants = cva(
   'inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50 px-3 py-1 rounded-md',
@@ -39,7 +39,7 @@ const tabsTriggerVariants = cva(
       mode: 'default'
     }
   }
-)
+);
 
 const TabsList: React.FC<
   React.ComponentPropsWithRef<typeof TabsPrimitive.List> &
@@ -50,8 +50,8 @@ const TabsList: React.FC<
     className={cn(tabListVariants({ className, mode }))}
     {...props}
   />
-)
-TabsList.displayName = TabsPrimitive.List.displayName
+);
+TabsList.displayName = TabsPrimitive.List.displayName;
 
 const TabsTrigger: React.FC<
   React.ComponentPropsWithRef<typeof TabsPrimitive.Trigger> &
@@ -62,8 +62,8 @@ const TabsTrigger: React.FC<
     className={cn(tabsTriggerVariants({ className, mode }))}
     {...props}
   />
-)
-TabsTrigger.displayName = TabsPrimitive.Trigger.displayName
+);
+TabsTrigger.displayName = TabsPrimitive.Trigger.displayName;
 
 const TabsContent: React.FC<
   React.ComponentPropsWithRef<typeof TabsPrimitive.Content>
@@ -76,7 +76,7 @@ const TabsContent: React.FC<
     )}
     {...props}
   />
-)
-TabsContent.displayName = TabsPrimitive.Content.displayName
+);
+TabsContent.displayName = TabsPrimitive.Content.displayName;
 
-export { Tabs, TabsList, TabsTrigger, TabsContent }
+export { Tabs, TabsContent, TabsList, TabsTrigger };

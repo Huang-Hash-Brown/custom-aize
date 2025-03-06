@@ -1,6 +1,6 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
+import { useState } from 'react';
 import {
   closestCenter,
   defaultDropAnimationSideEffects,
@@ -15,72 +15,72 @@ import {
   type DragStartEvent,
   type DropAnimation,
   type MeasuringConfiguration
-} from '@dnd-kit/core'
-import type { SyntheticListenerMap } from '@dnd-kit/core/dist/hooks/utilities'
+} from '@dnd-kit/core';
+import type { SyntheticListenerMap } from '@dnd-kit/core/dist/hooks/utilities';
 import {
   arrayMove,
   rectSortingStrategy,
   SortableContext,
   sortableKeyboardCoordinates
-} from '@dnd-kit/sortable'
-import { PlusIcon, TrashIcon } from '@radix-ui/react-icons'
-import { Slottable } from '@radix-ui/react-slot'
-import { useTranslation } from 'react-i18next'
+} from '@dnd-kit/sortable';
+import { PlusIcon, TrashIcon } from '@radix-ui/react-icons';
+import { Slottable } from '@radix-ui/react-slot';
+import { useTranslation } from 'react-i18next';
 
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/utils';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger
-} from '@/components/ui/accordion'
-import { AlertAction } from '@/components/ui/alert-action'
-import { Button } from '@/components/ui/button'
-import { ButtonWithTooltip } from '@/components/ui/button-with-tooltip'
+} from '@/components/ui/accordion';
+import { AlertAction } from '@/components/ui/alert-action';
+import { Button } from '@/components/ui/button';
+import { ButtonWithTooltip } from '@/components/ui/button-with-tooltip';
 
-import { SortableCard } from './sortable-card'
+import { SortableCard } from './sortable-card';
 
 export interface CardListProps<T> {
   // Basic props
-  className?: string
-  items: T[]
-  idField: keyof T
-  title?: string
+  className?: string;
+  items: T[];
+  idField: keyof T;
+  title?: string;
 
   // Features control
-  draggable?: boolean
-  showDragOverlay?: boolean
-  selectable?: boolean
-  expandable?: boolean
+  draggable?: boolean;
+  showDragOverlay?: boolean;
+  selectable?: boolean;
+  expandable?: boolean;
 
   // Expansion control
-  defaultExpandedIds?: string[]
-  onExpandedChange?: (ids: string[]) => void
+  defaultExpandedIds?: string[];
+  onExpandedChange?: (ids: string[]) => void;
 
   // Actions
-  onCreateItem?: () => void
-  onDeleteItems?: (items: T[]) => void
-  onReorderItems?: (items: T[]) => void
+  onCreateItem?: () => void;
+  onDeleteItems?: (items: T[]) => void;
+  onReorderItems?: (items: T[]) => void;
 
   // Render functions
   renderCard: (props: {
-    item: T
-    isSelected: boolean
-    onSelect: (selected: boolean) => void
-    dragHandleProps?: SyntheticListenerMap
-    isExpanded?: boolean
-  }) => React.ReactNode
-  renderExpandedContent?: (item: T) => React.ReactNode
+    item: T;
+    isSelected: boolean;
+    onSelect: (selected: boolean) => void;
+    dragHandleProps?: SyntheticListenerMap;
+    isExpanded?: boolean;
+  }) => React.ReactNode;
+  renderExpandedContent?: (item: T) => React.ReactNode;
 
   // Optional actions in header
-  headerLeftActions?: React.ReactNode
-  headerRightActions?: React.ReactNode
+  headerLeftActions?: React.ReactNode;
+  headerRightActions?: React.ReactNode;
 
   // Add minCardWidth prop with default value
-  minCardWidth?: number
+  minCardWidth?: number;
 
   // Add emptyContent prop
-  emptyContent?: React.ReactNode
+  emptyContent?: React.ReactNode;
 }
 
 export function CardList<T>({
@@ -104,40 +104,40 @@ export function CardList<T>({
   headerRightActions,
   emptyContent
 }: CardListProps<T>) {
-  const { t } = useTranslation()
-  const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set())
-  const [draggingId, setDraggingId] = useState<string | null>(null)
+  const { t } = useTranslation();
+  const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
+  const [draggingId, setDraggingId] = useState<string | null>(null);
   const [expandedIds, setExpandedIds] = useState<Set<string>>(
     new Set(defaultExpandedIds)
-  )
+  );
 
   // Selection handlers
   const handleSelectAll = (checked: boolean) => {
     if (checked) {
-      setSelectedIds(new Set(items.map(item => String(item[idField]))))
+      setSelectedIds(new Set(items.map(item => String(item[idField]))));
     } else {
-      setSelectedIds(new Set())
+      setSelectedIds(new Set());
     }
-  }
+  };
 
   const getSelectAllState = () => {
-    const selectedCount = selectedIds.size
-    const totalCount = items.length
+    const selectedCount = selectedIds.size;
+    const totalCount = items.length;
     return {
       checked: selectedCount > 0,
       indeterminate: selectedCount > 0 && selectedCount < totalCount
-    }
-  }
+    };
+  };
 
   const handleSelectItem = (id: string, checked: boolean) => {
-    const newSelected = new Set(selectedIds)
+    const newSelected = new Set(selectedIds);
     if (checked) {
-      newSelected.add(id)
+      newSelected.add(id);
     } else {
-      newSelected.delete(id)
+      newSelected.delete(id);
     }
-    setSelectedIds(newSelected)
-  }
+    setSelectedIds(newSelected);
+  };
 
   // DnD sensors setup
   const sensors = useSensors(
@@ -145,60 +145,60 @@ export function CardList<T>({
     useSensor(KeyboardSensor, {
       coordinateGetter: sortableKeyboardCoordinates
     })
-  )
+  );
 
   // DnD handlers
   const handleDragStart = (event: DragStartEvent) => {
-    const id = String(event.active.id)
-    setDraggingId(id)
-    setExpandedIds(new Set())
-  }
+    const id = String(event.active.id);
+    setDraggingId(id);
+    setExpandedIds(new Set());
+  };
 
   const handleDragEnd = (event: DragEndEvent) => {
-    const { active, over } = event
+    const { active, over } = event;
 
     if (over && active.id !== over.id) {
       const oldIndex = items.findIndex(
         item => String(item[idField]) === String(active.id)
-      )
+      );
       const newIndex = items.findIndex(
         item => String(item[idField]) === String(over.id)
-      )
+      );
 
-      const newItems = arrayMove(items, oldIndex, newIndex)
-      onReorderItems?.(newItems)
+      const newItems = arrayMove(items, oldIndex, newIndex);
+      onReorderItems?.(newItems);
     }
 
-    setDraggingId(null)
-  }
+    setDraggingId(null);
+  };
 
   // Delete selected items
   const handleDeleteSelected = () => {
     const selectedItems = items.filter(item =>
       selectedIds.has(String(item[idField]))
-    )
-    onDeleteItems?.(selectedItems)
-    setSelectedIds(new Set())
-  }
+    );
+    onDeleteItems?.(selectedItems);
+    setSelectedIds(new Set());
+  };
 
   const handleExpandedChange = (id: string, expanded: boolean) => {
-    const newExpandedIds = new Set(expandedIds)
+    const newExpandedIds = new Set(expandedIds);
     if (expanded) {
-      newExpandedIds.add(id)
+      newExpandedIds.add(id);
     } else {
-      newExpandedIds.delete(id)
+      newExpandedIds.delete(id);
     }
-    setExpandedIds(newExpandedIds)
-    onExpandedChange?.(Array.from(newExpandedIds))
-  }
+    setExpandedIds(newExpandedIds);
+    onExpandedChange?.(Array.from(newExpandedIds));
+  };
 
   const renderCardWithExpansion = (
     item: T,
     isSelected: boolean,
     dragHandleProps?: SyntheticListenerMap
   ) => {
-    const id = String(item[idField])
-    const isExpanded = expandedIds.has(id)
+    const id = String(item[idField]);
+    const isExpanded = expandedIds.has(id);
 
     if (!expandable) {
       return renderCard({
@@ -207,7 +207,7 @@ export function CardList<T>({
         onSelect: selected => handleSelectItem(id, selected),
         dragHandleProps,
         isExpanded
-      })
+      });
     }
 
     return (
@@ -237,14 +237,14 @@ export function CardList<T>({
           </AccordionItem>
         </Accordion>
       </div>
-    )
-  }
+    );
+  };
 
   const measuring: MeasuringConfiguration = {
     droppable: {
       strategy: MeasuringStrategy.Always
     }
-  }
+  };
 
   const dropAnimation: DropAnimation = {
     sideEffects: defaultDropAnimationSideEffects({
@@ -254,7 +254,7 @@ export function CardList<T>({
         }
       }
     })
-  }
+  };
 
   // Add default empty state component
   const renderDefaultEmptyContent = () => (
@@ -271,7 +271,7 @@ export function CardList<T>({
         )}
       </div>
     </div>
-  )
+  );
 
   return (
     <div className={cn('space-y-4', className)}>
@@ -295,17 +295,17 @@ export function CardList<T>({
                   count: selectedIds.size
                 })}
                 onClick={() => {
-                  const { checked } = getSelectAllState()
-                  handleSelectAll(!checked)
+                  const { checked } = getSelectAllState();
+                  handleSelectAll(!checked);
                 }}
               >
                 <input
                   type="checkbox"
                   ref={ref => {
                     if (ref) {
-                      const { checked, indeterminate } = getSelectAllState()
-                      ref.checked = checked
-                      ref.indeterminate = indeterminate
+                      const { checked, indeterminate } = getSelectAllState();
+                      ref.checked = checked;
+                      ref.indeterminate = indeterminate;
                     }
                   }}
                   data-state={
@@ -375,7 +375,7 @@ export function CardList<T>({
               }}
             >
               {items.map(item => {
-                const id = String(item[idField])
+                const id = String(item[idField]);
                 return (
                   <SortableCard key={id} id={id} draggable={draggable}>
                     {dragHandleProps =>
@@ -386,7 +386,7 @@ export function CardList<T>({
                       )
                     }
                   </SortableCard>
-                )
+                );
               })}
             </div>
           </SortableContext>
@@ -407,5 +407,5 @@ export function CardList<T>({
         </DndContext>
       )}
     </div>
-  )
+  );
 }

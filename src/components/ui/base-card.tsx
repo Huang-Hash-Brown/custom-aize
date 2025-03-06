@@ -1,55 +1,55 @@
-'use client'
+'use client';
 
-import { type ReactNode } from 'react'
-import { Pencil2Icon, TrashIcon } from '@radix-ui/react-icons'
-import { motion } from 'framer-motion'
-import { useTranslation } from 'react-i18next'
+import { type ReactNode } from 'react';
+import { Pencil2Icon, TrashIcon } from '@radix-ui/react-icons';
+import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
-import { cn } from '@/lib/utils'
-import { AlertAction } from '@/components/ui/alert-action'
-import { ButtonWithTooltip } from '@/components/ui/button-with-tooltip'
-import { Card, CardContent } from '@/components/ui/card'
-import { Checkbox } from '@/components/ui/checkbox'
+import { cn } from '@/lib/utils';
+import { AlertAction } from '@/components/ui/alert-action';
+import { ButtonWithTooltip } from '@/components/ui/button-with-tooltip';
+import { Card, CardContent } from '@/components/ui/card';
+import { Checkbox } from '@/components/ui/checkbox';
 
 export interface BaseCardAction {
-  icon: ReactNode
-  label: string
-  onClick: () => void
-  variant?: 'default' | 'destructive'
+  icon: ReactNode;
+  label: string;
+  onClick: () => void;
+  variant?: 'default' | 'destructive';
 }
 
 export interface BaseCardProps {
   // Basic props
-  title: string
-  subtitle?: string
+  title: string;
+  subtitle?: string;
   badge?: {
-    text: string
-    variant?: 'default' | 'muted'
-  }
+    text: string;
+    variant?: 'default' | 'muted';
+  };
 
   // Selection props
-  isSelected?: boolean
-  onSelect?: (selected: boolean) => void
+  isSelected?: boolean;
+  onSelect?: (selected: boolean) => void;
 
   // Action props
-  onEdit?: () => void
+  onEdit?: () => void;
   onDelete?: {
-    title: string
-    description: string
-    onConfirm: () => void
-  }
-  extraActions?: BaseCardAction[]
+    title: string;
+    description: string;
+    onConfirm: () => void;
+  };
+  extraActions?: BaseCardAction[];
 
   // Slot props
-  dragHandleSlot?: ReactNode
-  actionLeftSlot?: ReactNode
+  dragHandleSlot?: ReactNode;
+  actionLeftSlot?: ReactNode;
 
   // Content props
-  children?: ReactNode
+  children?: ReactNode;
 
   // Style props
-  className?: string
-  contentClassName?: string
+  className?: string;
+  contentClassName?: string;
 }
 
 export const BaseCard = ({
@@ -78,9 +78,9 @@ export const BaseCard = ({
   className,
   contentClassName
 }: BaseCardProps) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   const renderActions = () => {
-    const actions = []
+    const actions = [];
 
     // Add extra actions
     actions.push(
@@ -101,7 +101,7 @@ export const BaseCard = ({
           {action.icon}
         </ButtonWithTooltip>
       ))
-    )
+    );
 
     // Add edit action if provided
     if (onEdit) {
@@ -116,7 +116,7 @@ export const BaseCard = ({
         >
           <Pencil2Icon className="h-3.5 w-3.5" />
         </ButtonWithTooltip>
-      )
+      );
     }
 
     // Add delete action if provided
@@ -139,11 +139,11 @@ export const BaseCard = ({
             <TrashIcon className="h-3.5 w-3.5" />
           </ButtonWithTooltip>
         </AlertAction>
-      )
+      );
     }
 
-    return actions
-  }
+    return actions;
+  };
 
   return (
     <motion.div
@@ -200,5 +200,5 @@ export const BaseCard = ({
         </CardContent>
       </Card>
     </motion.div>
-  )
-}
+  );
+};

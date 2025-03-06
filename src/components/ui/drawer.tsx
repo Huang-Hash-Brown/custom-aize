@@ -1,9 +1,9 @@
-'use client'
+'use client';
 
-import * as React from 'react'
-import { Drawer as DrawerPrimitive } from 'vaul'
+import * as React from 'react';
+import { Drawer as DrawerPrimitive } from 'vaul';
 
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/utils';
 
 const Drawer: React.FC<React.ComponentProps<typeof DrawerPrimitive.Root>> = ({
   shouldScaleBackground = true,
@@ -13,14 +13,14 @@ const Drawer: React.FC<React.ComponentProps<typeof DrawerPrimitive.Root>> = ({
     shouldScaleBackground={shouldScaleBackground}
     {...props}
   />
-)
-Drawer.displayName = 'Drawer'
+);
+Drawer.displayName = 'Drawer';
 
-const DrawerTrigger = DrawerPrimitive.Trigger
+const DrawerTrigger = DrawerPrimitive.Trigger;
 
-const DrawerPortal = DrawerPrimitive.Portal
+const DrawerPortal = DrawerPrimitive.Portal;
 
-const DrawerClose = DrawerPrimitive.Close
+const DrawerClose = DrawerPrimitive.Close;
 
 const DrawerOverlay: React.FC<
   React.ComponentPropsWithRef<typeof DrawerPrimitive.Overlay>
@@ -30,8 +30,8 @@ const DrawerOverlay: React.FC<
     className={cn('fixed inset-0 z-50 bg-black/80', className)}
     {...props}
   />
-)
-DrawerOverlay.displayName = DrawerPrimitive.Overlay.displayName
+);
+DrawerOverlay.displayName = DrawerPrimitive.Overlay.displayName;
 
 const DrawerContent: React.FC<
   React.ComponentPropsWithRef<typeof DrawerPrimitive.Content>
@@ -50,8 +50,8 @@ const DrawerContent: React.FC<
       {children}
     </DrawerPrimitive.Content>
   </DrawerPortal>
-)
-DrawerContent.displayName = 'DrawerContent'
+);
+DrawerContent.displayName = 'DrawerContent';
 
 const DrawerHeader: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
   className,
@@ -61,8 +61,8 @@ const DrawerHeader: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
     className={cn('grid gap-1.5 p-4 text-center sm:text-left', className)}
     {...props}
   />
-)
-DrawerHeader.displayName = 'DrawerHeader'
+);
+DrawerHeader.displayName = 'DrawerHeader';
 
 const DrawerFooter: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
   className,
@@ -72,8 +72,8 @@ const DrawerFooter: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
     className={cn('mt-auto flex flex-col gap-2 p-4', className)}
     {...props}
   />
-)
-DrawerFooter.displayName = 'DrawerFooter'
+);
+DrawerFooter.displayName = 'DrawerFooter';
 
 const DrawerTitle: React.FC<
   React.ComponentPropsWithRef<typeof DrawerPrimitive.Title>
@@ -86,8 +86,8 @@ const DrawerTitle: React.FC<
     )}
     {...props}
   />
-)
-DrawerTitle.displayName = DrawerPrimitive.Title.displayName
+);
+DrawerTitle.displayName = DrawerPrimitive.Title.displayName;
 
 const DrawerDescription: React.FC<
   React.ComponentPropsWithRef<typeof DrawerPrimitive.Description>
@@ -97,18 +97,18 @@ const DrawerDescription: React.FC<
     className={cn('text-sm text-muted-foreground', className)}
     {...props}
   />
-)
-DrawerDescription.displayName = DrawerPrimitive.Description.displayName
+);
+DrawerDescription.displayName = DrawerPrimitive.Description.displayName;
 
 export {
   Drawer,
-  DrawerPortal,
-  DrawerOverlay,
-  DrawerTrigger,
   DrawerClose,
   DrawerContent,
-  DrawerHeader,
+  DrawerDescription,
   DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerPortal,
   DrawerTitle,
-  DrawerDescription
-}
+  DrawerTrigger
+};
