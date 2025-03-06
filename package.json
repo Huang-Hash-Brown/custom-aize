@@ -6,6 +6,7 @@
   "homepage": "https://github.com/Huang-Hash-Brown/customaize#readme",
   "website": "https://customaize.cn",
   "issuesUrl": "https://github.com/Huang-Hash-Brown/customaize/issues/new",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/Huang-Hash-Brown/customaize"
@@ -146,11 +147,6 @@
     "typescript": "^5.8.2",
     "vercel": "^41.3.0",
     "wrangler": "^3.111.0"
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
