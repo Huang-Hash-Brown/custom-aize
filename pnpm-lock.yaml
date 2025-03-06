@@ -268,6 +268,9 @@ devDependencies:
   commitizen:
     specifier: ^4.3.1
     version: 4.3.1(@types/node@22.13.9)(typescript@5.8.2)
+  cz-git:
+    specifier: ^1.11.1
+    version: 1.11.1
   eslint:
     specifier: ^8
     version: 8.57.1
@@ -5682,6 +5685,11 @@ packages:
     transitivePeerDependencies:
       - '@types/node'
       - typescript
+    dev: true
+
+  /cz-git@1.11.1:
+    resolution: {integrity: sha512-QIhpsX8blMydkGcSSlSb4VKvu4qHNtxAWeN0N3TWDfQw7VbVHMLlAwmLm/YxVk60KKPy42O5ihe7E0gosTG2kg==}
+    engines: {node: '>=v12.20.0'}
     dev: true
 
   /damerau-levenshtein@1.0.8:
