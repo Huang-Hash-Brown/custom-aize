@@ -20,7 +20,7 @@
   "scripts": {
     "build": "next build",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv env.d.ts",
-    "commit": "git add . && cz",
+    "commit": "git add . && git-cz",
     "db:generate": "drizzle-kit generate",
     "db:migrate:dev": "drizzle-kit migrate",
     "db:migrate:prod": "NODE_ENV=production drizzle-kit migrate",
@@ -125,6 +125,7 @@
     "@types/react-dom": "^19.0.4",
     "autoprefixer": "^10.4.20",
     "commitizen": "^4.3.1",
+    "cz-git": "^1.11.1",
     "eslint": "^8",
     "eslint-config-next": "15.2.0",
     "eslint-config-prettier": "^10.0.2",
@@ -152,7 +153,10 @@
     ]
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "pnpm exec next lint"
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   },
   "config": {
     "commitizen": {
