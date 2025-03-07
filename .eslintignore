@@ -18,3 +18,4 @@ LICENSE
 *.html
 out
 build
+pnpm-lock.yaml
